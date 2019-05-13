@@ -1,0 +1,95 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.topBanner {
+  display: block;
+  background-color: #fdc010;
+  height: 200px;
+  width: auto;
+}
+
+.topBanner h1 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.topText {
+  padding: 0 20px;
+  text-align: left;
+}
+
+.midBanner {
+  display: block;
+  background-color: #fdc010;
+  height: 50px;
+  line-height: 50px;
+  width: auto;
+  text-align: center;
+}
+
+.midBanner h2 {
+  margin: auto;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.midTiles {
+  display: inline-block;
+  width: 100%;
+  padding: 0;
+}
+
+.midTiles div {
+  display: inline-block;
+  background-color: #12aad1;
+  padding-top: 10px;
+  margin: 10px;
+  height: 200px;
+  width: 30%;
+  color: white;
+  vertical-align: middle;
+  border-radius: 10px;
+}
+
+.shadow {
+  position: relative;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.shadow:before,
+shadow:after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  right: 10px;
+  left: auto;
+  width: 50%;
+  top: 80%;
+  max-width: 300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
+
+.botBanner {
+  display: block;
+  background-color: #fdc010;
+  height: 50px;
+  line-height: 50px;
+  width: auto;
+  text-align: center;
+}
