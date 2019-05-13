@@ -3,7 +3,7 @@ import React from "react";
 class TopText extends React.Component {
   render() {
     return (
-      <div class="topText">
+      <div className="topText">
         <p>
           Welcome to this
           <strong> International Student Online Learning Resource</strong>. The

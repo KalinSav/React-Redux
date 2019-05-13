@@ -6,7 +6,7 @@ import MidTile3 from "./MidTiles/MidTile3.js";
 class MidTiles extends React.Component {
   render() {
     return (
-      <div class="midTiles">
+      <div className="midTiles">
         <MidTile1 />
         <MidTile2 />
         <MidTile3 />
