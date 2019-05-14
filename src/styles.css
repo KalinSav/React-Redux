@@ -32,8 +32,8 @@ html {
 
 .topText {
   font-family: Calibri, sans-serif;
-  font-size: 1.2em;
-  padding: 0 10%;
+  font-size: 1.3em;
+  padding: 5% 10%;
   text-align: left;
 }
 
@@ -54,16 +54,18 @@ html {
 }
 
 .midTiles {
+  background-image: linear-gradient(-90deg, rgb(6, 71, 124), rgb(85, 238, 218));
   display: inline-block;
   width: 100%;
+  height: 100%;
 }
 
 .midTiles div {
   display: inline-block;
   background-color: #12aad1;
   padding-top: 10px;
-  margin: 10px;
-  height: 200px;
+  margin: 15% 20px;
+  height: 240px;
   width: 25%;
   color: white;
   vertical-align: middle;
@@ -78,6 +80,7 @@ html {
   -webkit-box-shadow: 1px 22px 40px -5px rgba(0, 0, 0, 0.45);
   -moz-box-shadow: 1px 22x 40px -5px rgba(0, 0, 0, 0.45);
   box-shadow: 1px 22px 40px -5px rgba(0, 0, 0, 0.45);
+  background-color: #11a4c9;
 }
 
 .midTiles div button {
@@ -108,11 +111,20 @@ html {
   text-align: center;
 }
 
+.botBanner h2 {
+  margin: 0;
+}
+
+.botTiles {
+  height: 600px;
+  padding-top: 5%;
+}
+
 .botTiles div {
   display: inline-block;
   background-color: #ffffff;
   padding-top: 10px;
-  margin: 30px 10px 20px 10px;
+  margin: 30px 20px;
   height: 240px;
   width: 25%;
   vertical-align: middle;
@@ -138,11 +150,18 @@ html {
   max-height: 150px;
 }
 
+@media (max-width: 732px) {
+  .botTiles div img {
+    max-height: 130px;
+  }
+}
+
 @media (max-width: 640px) {
   /* smartphones, Android phones, landscape iPhone */
 
   .midTiles div {
-    padding: 10px 10%;
+    padding: 0px 10%;
+    margin: 20px;
   }
 
   .botTiles div {
@@ -164,6 +183,7 @@ html {
 
   .botTiles div {
     font-size: 0.5em;
+    height: 100px;
   }
 
   .midBanner h2,
@@ -172,6 +192,12 @@ html {
   }
 
   .botTiles div h2 {
-    padding: 75% 0;
+    padding: 20px;
   }
+}
+
+.footer {
+  background-color: #fdc010;
+  height: 200px;
+  margin-top: 5%;
 }

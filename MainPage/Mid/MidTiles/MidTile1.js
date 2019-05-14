@@ -3,7 +3,7 @@ import React from "react";
 class MidTile1 extends React.Component {
   render() {
     return (
-      <div className="midTile1 shadow">
+      <div className="midTile1">
         <h2>Project Summary</h2>
 
         <button className="button">Find out more</button>
