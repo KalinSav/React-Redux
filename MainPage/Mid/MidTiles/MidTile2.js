@@ -5,6 +5,8 @@ class MidTile2 extends React.Component {
     return (
       <div className="midTile2 shadow">
         <h2>Top 10 Tips</h2>
+
+        <button className="button">Find out more</button>
       </div>
     );
   }
