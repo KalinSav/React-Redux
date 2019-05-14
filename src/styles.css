@@ -84,7 +84,7 @@ html {
 }
 
 .midTiles div button {
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   display: inline-block;
   background-color: #fdc010;
   border-radius: 5px;
