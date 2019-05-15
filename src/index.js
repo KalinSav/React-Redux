@@ -1,16 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import MainPage from "../MainPage/MainPage.js";
-
-import "./styles.css";
-
-function App() {
-  return (
-    <div className="App">
-      <MainPage />
-    </div>
-  );
-}
+import App from "./App.js";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
