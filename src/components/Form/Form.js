@@ -5,9 +5,10 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pushit: FormDatabase,
+      commentsDatabase: FormDatabase,
       firstName: "",
-      comment: ""
+      comment: "",
+      id: null
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,16 +17,30 @@ class Form extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const data = this.state;
-    console.log(data);
-    console.log(this.state.pushit);
-    this.setState(prevState => {
-      const pushdata = prevState.pushit.map(item => {
-        item = this.state.firstName;
-        return item;
+
+    this.setState(() => {
+      data.id += 1;
+      data.commentsDatabase.push({
+        id: data.id,
+        firstName: data.firstName,
+        comment: data.comment
       });
-      return pushdata;
     });
-    console.log(this.state.pushit);
+
+    console.log(data.commentsDatabase);
+
+    var newCommentDiv = document.createElement("div");
+    newCommentDiv.classList.add("comment");
+    var newNameH3 = document.createElement("h3");
+    var newCommentP = document.createElement("p");
+    var newName = document.createTextNode(data.firstName);
+    var newComment = document.createTextNode(data.comment);
+    newNameH3.appendChild(newName);
+    newCommentP.appendChild(newComment);
+    newCommentDiv.appendChild(newNameH3);
+    newCommentDiv.appendChild(newCommentP);
+    document.getElementById("commentSection").appendChild(newCommentDiv);
+
     this.setState({
       firstName: "",
       comment: ""
@@ -69,6 +84,12 @@ class Form extends React.Component {
             <button>Add comment</button>
           </p>
         </form>
+        <div id="commentSection">
+          <div className="comment">
+            <h3>{this.state.commentsDatabase[0].firstName}</h3>
+            <p>{this.state.commentsDatabase[0].comment}</p>
+          </div>
+        </div>
       </div>
     );
   }

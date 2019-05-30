@@ -3,10 +3,10 @@ import React from "react";
 class BotTile6 extends React.Component {
   render() {
     return (
-      <div class="botTile6">
+      <div className="botTile6">
         <h2>Australia & NZ</h2>
         <img
-          src="http://www.projectstation.com.au/wp-content/uploads/2014/04/continent-icon-aus-nz.png"
+          src="https://upload.wikimedia.org/wikipedia/commons/5/55/Map_of_Australia_and_New_Zealand.png"
           alt="Australia and New Zealand"
         />
       </div>
