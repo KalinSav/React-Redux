@@ -1,15 +1,30 @@
 import React from "react";
-import MidTile1 from "./MidTiles/MidTile1.js";
-import MidTile2 from "./MidTiles/MidTile2.js";
-import MidTile3 from "./MidTiles/MidTile3.js";
+import MidTile from "./MidTile.js";
 
 class MidTiles extends React.Component {
+  state = {
+    midTiles: [
+      {
+        tileTitle: "Project Summary",
+        buttonText: "Find out more",
+        tileId: 1
+      },
+      {
+        tileTitle: "Top 10 Tips",
+        buttonText: "Find out more",
+        tileId: 2
+      },
+      {
+        tileTitle: "Key Issues",
+        buttonText: "Find out more",
+        tileId: 3
+      }
+    ]
+  };
   render() {
     return (
       <div className="midTiles">
-        <MidTile1 />
-        <MidTile2 />
-        <MidTile3 />
+        <MidTile midTiles={this.state.midTiles} />
       </div>
     );
   }

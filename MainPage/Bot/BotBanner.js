@@ -1,12 +1,9 @@
 import React from "react";
+import Banner from "../Banner.js";
 
 class BotBanner extends React.Component {
   render() {
-    return (
-      <div className="botBanner">
-        <h2>Country-Specific Information</h2>
-      </div>
-    );
+    return <Banner bannerTitle="Country-Specific Information" />;
   }
 }
 

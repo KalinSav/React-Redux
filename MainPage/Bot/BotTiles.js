@@ -1,21 +1,57 @@
 import React from "react";
-import BotTile1 from "./BotTiles/BotTile1.js";
-import BotTile2 from "./BotTiles/BotTile2.js";
-import BotTile3 from "./BotTiles/BotTile3.js";
-import BotTile4 from "./BotTiles/BotTile4.js";
-import BotTile5 from "./BotTiles/BotTile5.js";
-import BotTile6 from "./BotTiles/BotTile6.js";
+import BotTile from "./BotTile.js";
 
 class BotTiles extends React.Component {
+  state = {
+    botTiles: [
+      {
+        tileTitle: "North America",
+        tileImgSrc:
+          "https://upload.wikimedia.org/wikipedia/commons/c/c3/North_america_blank_range_map.png",
+        tileAlt: "North America",
+        tileId: 1
+      },
+      {
+        tileTitle: "Europe",
+        tileImgSrc:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Europe_blank_map.png/655px-Europe_blank_map.png",
+        tileAlt: "Europe",
+        tileId: 2
+      },
+      {
+        tileTitle: "Asia & ME",
+        tileImgSrc:
+          "https://upload.wikimedia.org/wikipedia/commons/4/4a/BlankMap-Asia.png",
+        tileAlt: "Asia and Middle East",
+        tileId: 3
+      },
+      {
+        tileTitle: "South America",
+        tileImgSrc:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/BlankMap-South-America.png/400px-BlankMap-South-America.png",
+        tileAlt: "South America",
+        tileId: 4
+      },
+      {
+        tileTitle: "Africa",
+        tileImgSrc:
+          "https://upload.wikimedia.org/wikipedia/commons/f/f9/BlankMap-Africa.svg",
+        tileAlt: "Africa",
+        tileId: 5
+      },
+      {
+        tileTitle: "Australia & NZ",
+        tileImgSrc:
+          "https://upload.wikimedia.org/wikipedia/commons/5/55/Map_of_Australia_and_New_Zealand.png",
+        tileAlt: "Australia and New Zealand",
+        tileId: 6
+      }
+    ]
+  };
   render() {
     return (
       <div className="botTiles">
-        <BotTile1 />
-        <BotTile2 />
-        <BotTile3 />
-        <BotTile4 />
-        <BotTile5 />
-        <BotTile6 />
+        <BotTile botTiles={this.state.botTiles} />
       </div>
     );
   }

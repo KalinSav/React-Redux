@@ -41,7 +41,7 @@ html {
   text-align: left;
 }
 
-.midBanner {
+.banner {
   display: block;
   background-color: #fdc010;
   height: 50px;
@@ -50,11 +50,8 @@ html {
   text-align: center;
 }
 
-.midBanner h2 {
-  margin: auto;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: normal;
+.banner h2 {
+  margin: 0;
 }
 
 .midTiles {
@@ -64,7 +61,7 @@ html {
   height: 100%;
 }
 
-.midTiles div {
+.midTile {
   display: inline-block;
   position: relative;
   background-color: #12aad1;
@@ -81,14 +78,14 @@ html {
   transition: box-shadow 0.4s;
 }
 
-.midTiles div:hover {
+.midTile:hover {
   -webkit-box-shadow: 1px 22px 40px -5px rgba(0, 0, 0, 0.45);
   -moz-box-shadow: 1px 22x 40px -5px rgba(0, 0, 0, 0.45);
   box-shadow: 1px 22px 40px -5px rgba(0, 0, 0, 0.45);
   background-color: #11a4c9;
 }
 
-.midTiles div button {
+.midTile button {
   font-family: Montserrat, sans-serif;
   position: absolute;
   bottom: 20%;
@@ -109,21 +106,8 @@ html {
   box-shadow: 1px 10px 40px -13px rgba(0, 0, 0, 0.45);
 }
 
-.midTiles div button:hover {
+.midTile button:hover {
   transform: scale(1.1);
-}
-
-.botBanner {
-  display: block;
-  background-color: #fdc010;
-  height: 50px;
-  line-height: 50px;
-  width: auto;
-  text-align: center;
-}
-
-.botBanner h2 {
-  margin: 0;
 }
 
 .botTiles {
@@ -131,7 +115,7 @@ html {
   padding-top: 5%;
 }
 
-.botTiles div {
+.botTile {
   display: inline-block;
   background-color: #ffffff;
   padding-top: 10px;
@@ -146,23 +130,23 @@ html {
   transition: transform 0.2s;
 }
 
-.botTiles div:hover {
+.botTile:hover {
   transform: scale(1.05);
 }
 
-.botTiles div h2 {
+.botTile h2 {
   background-color: #fdc010;
   padding: 10px 0;
   margin-top: 10px;
 }
 
-.botTiles div img {
+.botTile img {
   max-width: 80%;
   max-height: 150px;
 }
 
 @media (max-width: 732px) {
-  .botTiles div img {
+  .botTile img {
     max-height: 130px;
   }
 }
@@ -170,21 +154,21 @@ html {
 @media (max-width: 640px) {
   /* smartphones, Android phones, landscape iPhone */
 
-  .midTiles div {
+  .midTile {
     padding: 0px 10%;
     margin: 20px;
   }
 
-  .botTiles div {
+  .botTile {
     width: 25%;
     background-color: #fdc010;
   }
 
-  .botTiles div img {
+  .botTile img {
     display: none;
   }
 
-  .botTiles div h2 {
+  .botTile h2 {
     padding: 50% 0;
   }
 }
@@ -192,17 +176,16 @@ html {
 @media (max-width: 500px) {
   /* smartphones, Android phones, landscape iPhone */
 
-  .botTiles div {
+  .botTile {
     font-size: 0.5em;
     height: 100px;
   }
 
-  .midBanner h2,
-  .botBanner h2 {
+  .banner h2 {
     font-size: 1.2em;
   }
 
-  .botTiles div h2 {
+  .botTile h2 {
     padding: 20px;
   }
 }
@@ -211,4 +194,21 @@ html {
   background-color: #fdc010;
   height: 200px;
   margin-top: 5%;
+}
+
+@media (max-width: 350px) {
+  /* smartphones, Android phones, landscape iPhone */
+  .midTile {
+    font-size: 0.7em;
+  }
+
+  .midTile button {
+    width: 70px;
+    margin-left: -35px;
+  }
+
+  .botTile {
+    font-size: 0.4em;
+    padding: 0px;
+  }
 }

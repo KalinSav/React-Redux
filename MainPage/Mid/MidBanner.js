@@ -1,12 +1,9 @@
 import React from "react";
+import Banner from "../Banner.js";
 
 class MidBanner extends React.Component {
   render() {
-    return (
-      <div className="midBanner">
-        <h2>General Information</h2>
-      </div>
-    );
+    return <Banner bannerTitle="General Information" />;
   }
 }
 
