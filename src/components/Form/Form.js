@@ -10,7 +10,7 @@ class Form extends React.Component {
       comment: "",
       id: null
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -18,16 +18,40 @@ class Form extends React.Component {
     e.preventDefault();
     const data = this.state;
 
-    this.setState(() => {
-      data.id += 1;
-      data.commentsDatabase.push({
-        id: data.id,
+    // first way, this updates the FormDatabase in a delayed way!!!!!
+    this.setState(prevState => {
+      const newId = data.id + 1;
+      const newCommentsDatabase = prevState.commentsDatabase.map(item => item);
+      newCommentsDatabase.push({
         firstName: data.firstName,
-        comment: data.comment
+        comment: data.comment,
+        id: newId
       });
+      console.log(data.newCommentsDatabase);
+      return {
+        commentsDatabase: newCommentsDatabase,
+        firstName: "",
+        comment: "",
+        id: newId
+      };
     });
 
+    // second way
+    // let newcommentsDatabase = [
+    //   ...data.commentsDatabase,
+    //   { firstName: data.firstName, comment: data.comment, id: data.id + 1 }
+    // ];
+    // console.log(data);
+    // this.setState({ commentsDatabase: newcommentsDatabase });
+    // third way
+    // data.commentsDatabase.push({
+    //   id: data.id,
+    //   firstName: data.firstName,
+    //   comment: data.comment
+    // });
+    console.log(data.newCommentsDatabase);
     console.log(data.commentsDatabase);
+    console.log(data.comment);
 
     var newCommentDiv = document.createElement("div");
     newCommentDiv.classList.add("comment");
@@ -40,14 +64,14 @@ class Form extends React.Component {
     newCommentDiv.appendChild(newNameH3);
     newCommentDiv.appendChild(newCommentP);
     document.getElementById("commentSection").appendChild(newCommentDiv);
-
-    this.setState({
-      firstName: "",
-      comment: ""
-    });
+    console.log("comment added");
+    // this.setState({
+    //   firstName: "",
+    //   comment: ""
+    // });
   }
 
-  handleInputChange(e) {
+  handleChange(e) {
     e.preventDefault();
     this.setState({
       [e.target.name]: e.target.value
@@ -67,7 +91,7 @@ class Form extends React.Component {
               name="firstName"
               value={firstName}
               type="text"
-              onChange={this.handleInputChange}
+              onChange={this.handleChange}
             />
           </p>
           <p>
@@ -77,7 +101,7 @@ class Form extends React.Component {
               value={comment}
               rows="4"
               cols="30"
-              onChange={this.handleInputChange}
+              onChange={this.handleChange}
             />
           </p>
           <p>
