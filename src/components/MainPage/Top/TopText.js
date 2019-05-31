@@ -3,7 +3,7 @@ import React from "react";
 class TopText extends React.Component {
   render() {
     return (
-      <div className="topText">
+      <article className="topText">
         <p>
           Welcome to this
           <strong> International Student Online Learning Resource</strong>. The
@@ -40,7 +40,7 @@ class TopText extends React.Component {
           interest, rather than read comprehensively, and so there are some
           information overlaps in places.
         </p>
-      </div>
+      </article>
     );
   }
 }

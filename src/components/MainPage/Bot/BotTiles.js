@@ -50,9 +50,9 @@ class BotTiles extends React.Component {
   };
   render() {
     return (
-      <div className="botTiles">
+      <section className="botTiles">
         <BotTile botTiles={this.state.botTiles} />
-      </div>
+      </section>
     );
   }
 }

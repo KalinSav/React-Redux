@@ -5,10 +5,10 @@ import TopText from "./TopText";
 class Top extends React.Component {
   render() {
     return (
-      <div>
+      <header>
         <TopBanner />
         <TopText />
-      </div>
+      </header>
     );
   }
 }

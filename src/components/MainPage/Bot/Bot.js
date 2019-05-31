@@ -5,10 +5,10 @@ import BotTiles from "./BotTiles";
 class Bot extends React.Component {
   render() {
     return (
-      <div>
+      <section>
         <BotBanner />
         <BotTiles />
-      </div>
+      </section>
     );
   }
 }

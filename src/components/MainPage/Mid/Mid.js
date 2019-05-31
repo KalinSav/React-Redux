@@ -5,10 +5,10 @@ import MidTiles from "./MidTiles";
 class Mid extends React.Component {
   render() {
     return (
-      <div className="mid">
+      <section className="mid">
         <MidBanner />
         <MidTiles />
-      </div>
+      </section>
     );
   }
 }
