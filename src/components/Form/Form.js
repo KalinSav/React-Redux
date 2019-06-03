@@ -12,30 +12,36 @@ class Form extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.createComment = this.createComment.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const data = this.state;
-
-    // first way, this updates the FormDatabase in a delayed way!!!!!
-    this.setState(prevState => {
-      const newId = data.id + 1;
-      const newCommentsDatabase = prevState.commentsDatabase.map(item => item);
-      newCommentsDatabase.push({
-        firstName: data.firstName,
-        comment: data.comment,
-        id: newId
-      });
-      console.log(data.newCommentsDatabase);
-      return {
-        commentsDatabase: newCommentsDatabase,
-        firstName: "",
-        comment: "",
-        id: newId
-      };
-    });
-
+    this.setState(
+      prevState => {
+        const newId = data.commentsDatabase.length;
+        const newCommentsDatabase = prevState.commentsDatabase.map(
+          item => item
+        );
+        newCommentsDatabase.push({
+          firstName: data.firstName,
+          comment: data.comment,
+          id: newId
+        });
+        return {
+          commentsDatabase: newCommentsDatabase,
+          firstName: "",
+          comment: "",
+          id: null
+        };
+      },
+      () => console.log(data.commentsDatabase)
+    );
+    this.createComment(data.firstName, data.comment);
+    document.querySelector(".commentButton").disabled = true;
+    document.querySelector(".commentButton").style.cursor = "no-drop";
+    document.querySelector(".commentButton").style.opacity = "0.4";
     // second way
     // let newcommentsDatabase = [
     //   ...data.commentsDatabase,
@@ -49,71 +55,85 @@ class Form extends React.Component {
     //   firstName: data.firstName,
     //   comment: data.comment
     // });
-    console.log(data.newCommentsDatabase);
-    console.log(data.commentsDatabase);
-    console.log(data.comment);
-
-    var newCommentDiv = document.createElement("div");
-    newCommentDiv.classList.add("comment");
-    var newNameH3 = document.createElement("h3");
-    var newCommentP = document.createElement("p");
-    var newName = document.createTextNode(data.firstName);
-    var newComment = document.createTextNode(data.comment);
-    newNameH3.appendChild(newName);
-    newCommentP.appendChild(newComment);
-    newCommentDiv.appendChild(newNameH3);
-    newCommentDiv.appendChild(newCommentP);
-    document.getElementById("commentSection").appendChild(newCommentDiv);
-    console.log("comment added");
-    // this.setState({
-    //   firstName: "",
-    //   comment: ""
-    // });
   }
 
   handleChange(e) {
     e.preventDefault();
-    this.setState({
-      [e.target.name]: e.target.value
-    });
+    this.setState(
+      {
+        [e.target.name]: e.target.value
+      },
+      () => {
+        if (this.state.firstName && this.state.comment !== "") {
+          document.querySelector(".commentButton").disabled = false;
+          document.querySelector(".commentButton").style.cursor = "pointer";
+          document.querySelector(".commentButton").style.opacity = "1";
+        } else {
+          document.querySelector(".commentButton").disabled = true;
+          document.querySelector(".commentButton").style.cursor = "no-drop";
+          document.querySelector(".commentButton").style.opacity = "0.4";
+        }
+      }
+    );
+  }
+
+  createComment(name, comment) {
+    const newCommentDiv = document.createElement("div");
+    newCommentDiv.classList.add("comment");
+    const newNameH3 = document.createElement("h3");
+    const newName = document.createTextNode(name);
+    const newCommentP = document.createElement("p");
+    const newComment = document.createTextNode(comment);
+    newNameH3.appendChild(newName);
+    newCommentP.appendChild(newComment);
+    newCommentDiv.appendChild(newNameH3);
+    newCommentDiv.appendChild(newCommentP);
+    const commentSection = document.getElementById("commentSection");
+    commentSection.insertBefore(newCommentDiv, commentSection.childNodes[0]);
+  }
+
+  componentDidMount() {
+    for (let i = 0; i < this.state.commentsDatabase.length; i++) {
+      this.createComment(
+        this.state.commentsDatabase[i].firstName,
+        this.state.commentsDatabase[i].comment
+      );
+    }
   }
 
   render() {
     const { firstName, comment } = this.state;
+
     return (
       <div>
-        <h1>Form</h1>
+        <h1>Type in your name and comment below</h1>
         <br />
         <form onSubmit={this.handleSubmit}>
           <p>
-            Name:
             <input
               name="firstName"
               value={firstName}
               type="text"
+              placeholder="Your name"
               onChange={this.handleChange}
             />
           </p>
           <p>
-            Comment:
             <textarea
               name="comment"
               value={comment}
               rows="4"
-              cols="30"
+              cols="40"
+              placeholder="Comment..."
               onChange={this.handleChange}
             />
           </p>
-          <p>
-            <button>Add comment</button>
-          </p>
+
+          <button className="commentButton" disabled>
+            Add comment
+          </button>
         </form>
-        <div id="commentSection">
-          <div className="comment">
-            <h3>{this.state.commentsDatabase[0].firstName}</h3>
-            <p>{this.state.commentsDatabase[0].comment}</p>
-          </div>
-        </div>
+        <div id="commentSection" />
       </div>
     );
   }
