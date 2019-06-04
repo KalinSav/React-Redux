@@ -184,6 +184,11 @@ html {
   max-height: 150px;
 }
 
+.countryTile img {
+  max-width: 80%;
+  max-height: 150px;
+}
+
 @media (max-width: 732px) {
   .botTile img {
     max-height: 130px;
