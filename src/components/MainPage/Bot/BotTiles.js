@@ -8,6 +8,7 @@ class BotTiles extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      showBotTiles: true,
       botTiles: [
         {
           tileTitle: "North America",
@@ -59,21 +60,32 @@ class BotTiles extends React.Component {
   }
 
   handleClick() {
-    document.getElementsByClassName("botTile").style.fontSize = "0.5em";
-    console.log("asd");
+    console.log(this.state);
+    if (this.state.showBotTiles === true) {
+      this.setState({ showBotTiles: false });
+    } else {
+      this.setState({ showBotTiles: true });
+    }
+    console.log(this.state);
   }
 
   render() {
     return (
       <HashRouter>
         <section>
-          <div className="botTiles">
-            <BotTile
-              botTiles={this.state.botTiles}
-              onClick={() => this.handleClick()}
-            />
+          <div
+            className="botTiles"
+            style={{ display: this.state.showBotTiles ? null : "none" }}
+          >
+            <BotTile state={this.state} onClick={this.handleClick} />
           </div>
-          <div className="countryTiles">
+          <div
+            className="botTiles"
+            style={{ display: this.state.showBotTiles ? "none" : null }}
+          >
+            <button className="backButton" onClick={this.handleClick}>
+              Back
+            </button>
             <Route path="/NorthAmerica" component={NorthAmerica} />
             <Route path="/Europe" component={Europe} />
           </div>
