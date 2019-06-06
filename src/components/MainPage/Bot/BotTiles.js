@@ -1,8 +1,12 @@
 import React from "react";
 import BotTile from "./BotTile.js";
-import { Route, NavLink, HashRouter } from "react-router-dom";
+import { Route, HashRouter } from "react-router-dom";
 import NorthAmerica from "./Continents/NorthAmerica/NorthAmerica.js";
 import Europe from "./Continents/Europe/Europe.js";
+import AsiaMiddleEast from "./Continents/AsiaMiddleEast/AsiaMiddleEast.js";
+import SouthAmerica from "./Continents/SouthAmerica/SouthAmerica.js";
+import Africa from "./Continents/Africa/Africa.js";
+import AustraliaNewZealand from "./Continents/AustraliaNewZealand/AustraliaNewZealand.js";
 
 class BotTiles extends React.Component {
   constructor(props) {
@@ -31,6 +35,7 @@ class BotTiles extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/4/4a/BlankMap-Asia.png",
           tileAlt: "Asia and Middle East",
+          navLink: "/AsiaMiddleEast",
           tileId: 3
         },
         {
@@ -38,6 +43,7 @@ class BotTiles extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/BlankMap-South-America.png/400px-BlankMap-South-America.png",
           tileAlt: "South America",
+          navLink: "/SouthAmerica",
           tileId: 4
         },
         {
@@ -45,6 +51,7 @@ class BotTiles extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/f/f9/BlankMap-Africa.svg",
           tileAlt: "Africa",
+          navLink: "/Africa",
           tileId: 5
         },
         {
@@ -52,6 +59,7 @@ class BotTiles extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/5/55/Map_of_Australia_and_New_Zealand.png",
           tileAlt: "Australia and New Zealand",
+          navLink: "/AustraliaNewZealand",
           tileId: 6
         }
       ]
@@ -60,34 +68,53 @@ class BotTiles extends React.Component {
   }
 
   handleClick() {
-    console.log(this.state);
     if (this.state.showBotTiles === true) {
       this.setState({ showBotTiles: false });
     } else {
       this.setState({ showBotTiles: true });
     }
-    console.log(this.state);
   }
 
   render() {
+    const visible = {
+      visibility: "visible",
+      opacity: 1,
+      transition: "opacity 0.4s 0.15s, height 0.3s ease-out"
+    };
+
+    const invisible = {
+      padding: 0,
+      height: "0px",
+      visibility: "hidden",
+      opacity: 0,
+      transition: "opacity 0.4s, height 0.3s ease-out"
+    };
+
     return (
       <HashRouter>
         <section>
           <div
             className="botTiles"
-            style={{ display: this.state.showBotTiles ? null : "none" }}
+            style={this.state.showBotTiles ? visible : invisible}
           >
             <BotTile state={this.state} onClick={this.handleClick} />
           </div>
           <div
             className="botTiles"
-            style={{ display: this.state.showBotTiles ? "none" : null }}
+            style={this.state.showBotTiles ? invisible : visible}
           >
-            <button className="backButton" onClick={this.handleClick}>
+            <button className="button" onClick={this.handleClick}>
               Back
             </button>
             <Route path="/NorthAmerica" component={NorthAmerica} />
             <Route path="/Europe" component={Europe} />
+            <Route path="/AsiaMiddleEast" component={AsiaMiddleEast} />
+            <Route path="/SouthAmerica" component={SouthAmerica} />
+            <Route path="/Africa" component={Africa} />
+            <Route
+              path="/AustraliaNewZealand"
+              component={AustraliaNewZealand}
+            />
           </div>
         </section>
       </HashRouter>

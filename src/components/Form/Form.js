@@ -39,9 +39,9 @@ class Form extends React.Component {
       () => console.log(data.commentsDatabase)
     );
     this.createComment(data.firstName, data.comment);
-    document.querySelector(".commentButton").disabled = true;
-    document.querySelector(".commentButton").style.cursor = "no-drop";
-    document.querySelector(".commentButton").style.opacity = "0.4";
+    document.querySelector(".commentsTiles button").disabled = true;
+    document.querySelector(".commentsTiles button").style.cursor = "no-drop";
+    document.querySelector(".commentsTiles button").style.opacity = "0.4";
     // second way
     // let newcommentsDatabase = [
     //   ...data.commentsDatabase,
@@ -65,13 +65,15 @@ class Form extends React.Component {
       },
       () => {
         if (this.state.firstName && this.state.comment !== "") {
-          document.querySelector(".commentButton").disabled = false;
-          document.querySelector(".commentButton").style.cursor = "pointer";
-          document.querySelector(".commentButton").style.opacity = "1";
+          document.querySelector(".commentsTiles button").disabled = false;
+          document.querySelector(".commentsTiles button").style.cursor =
+            "pointer";
+          document.querySelector(".commentsTiles button").style.opacity = "1";
         } else {
-          document.querySelector(".commentButton").disabled = true;
-          document.querySelector(".commentButton").style.cursor = "no-drop";
-          document.querySelector(".commentButton").style.opacity = "0.4";
+          document.querySelector(".commentsTiles button").disabled = true;
+          document.querySelector(".commentsTiles button").style.cursor =
+            "no-drop";
+          document.querySelector(".commentsTiles button").style.opacity = "0.4";
         }
       }
     );
@@ -129,7 +131,7 @@ class Form extends React.Component {
             />
           </p>
 
-          <button className="commentButton" disabled>
+          <button className="button" disabled>
             Add comment
           </button>
         </form>
