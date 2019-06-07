@@ -72,6 +72,7 @@ class BotTiles extends React.Component {
       this.setState({ showBotTiles: false });
     } else {
       this.setState({ showBotTiles: true });
+      document.location.href = "#/";
     }
   }
 
@@ -106,15 +107,17 @@ class BotTiles extends React.Component {
             <button className="button" onClick={this.handleClick}>
               Back
             </button>
-            <Route path="/NorthAmerica" component={NorthAmerica} />
-            <Route path="/Europe" component={Europe} />
-            <Route path="/AsiaMiddleEast" component={AsiaMiddleEast} />
-            <Route path="/SouthAmerica" component={SouthAmerica} />
-            <Route path="/Africa" component={Africa} />
-            <Route
-              path="/AustraliaNewZealand"
-              component={AustraliaNewZealand}
-            />
+            <div className="countryTiles">
+              <Route path="/NorthAmerica" component={NorthAmerica} />
+              <Route path="/Europe" component={Europe} />
+              <Route path="/AsiaMiddleEast" component={AsiaMiddleEast} />
+              <Route path="/SouthAmerica" component={SouthAmerica} />
+              <Route path="/Africa" component={Africa} />
+              <Route
+                path="/AustraliaNewZealand"
+                component={AustraliaNewZealand}
+              />
+            </div>
           </div>
         </section>
       </HashRouter>
