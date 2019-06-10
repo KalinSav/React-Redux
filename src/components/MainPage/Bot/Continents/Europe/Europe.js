@@ -1,28 +1,64 @@
 import React from "react";
+import { Route, HashRouter } from "react-router-dom";
 import CountryTile from "../CountryTile.js";
+import Spain from "./Countries/Spain.js";
+import France from "./Countries/France.js";
 
 class Europe extends React.Component {
-  state = {
-    countryTiles: [
-      {
-        tileTitle: "Spain",
-        tileImgSrc:
-          "https://upload.wikimedia.org/wikipedia/commons/3/38/Canada_blank_map.svg",
-        tileAlt: "Canada",
-        tileId: 1
-      },
-      {
-        tileTitle: "France",
-        tileImgSrc:
-          "https://upload.wikimedia.org/wikipedia/commons/3/38/Canada_blank_map.svg",
-        tileAlt: "Canada",
-        tileId: 2
-      }
-    ]
-  };
+  constructor() {
+    super();
+    this.state = {
+      showCountryTiles: true,
+      countryTiles: [
+        {
+          tileTitle: "Spain",
+          tileImgSrc:
+            "https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg",
+          tileAlt: "Spain",
+          navLink: "/Europe/Spain",
+          component: Spain,
+          tileId: 1
+        },
+        {
+          tileTitle: "France",
+          tileImgSrc:
+            "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg",
+          tileAlt: "France",
+          navLink: "/Europe/France",
+          component: France,
+          tileId: 2
+        }
+      ]
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {}
+
+  componentDidMount() {
+    console.log("TEST1");
+  }
 
   render() {
-    return <CountryTile countryTiles={this.state.countryTiles} />;
+    const routers = this.state.countryTiles.map(country => (
+      <Route
+        key={country.tileId}
+        path={country.navLink}
+        component={country.component}
+      />
+    ));
+    return (
+      <HashRouter>
+        <div>
+          <CountryTile
+            countryTiles={this.state.countryTiles}
+            onClick={this.handleClick}
+          />
+        </div>
+
+        <div>{routers}</div>
+      </HashRouter>
+    );
   }
 }
 

@@ -5,15 +5,7 @@ const BotTile = props => {
   const botTilesList = props.state.botTiles.map(botTile => {
     return (
       <HashRouter key={botTile.tileId}>
-        <NavLink
-          to={botTile.navLink}
-          style={{
-            textDecoration: "none",
-            color: "black"
-          }}
-          onClick={props.onClick}
-          replace
-        >
+        <NavLink to={botTile.navLink} onClick={props.onClick}>
           <div className="botTile">
             <h2>{botTile.tileTitle}</h2>
             <img src={botTile.tileImgSrc} alt={botTile.tileAlt} />

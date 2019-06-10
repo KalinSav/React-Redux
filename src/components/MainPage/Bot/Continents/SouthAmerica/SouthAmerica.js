@@ -12,7 +12,7 @@ class SouthAmerica extends React.Component {
         tileId: 1
       },
       {
-        tileTitle: "Cambodia",
+        tileTitle: "Colombia",
         tileImgSrc:
           "https://upload.wikimedia.org/wikipedia/commons/3/38/Canada_blank_map.svg",
         tileAlt: "Canada",

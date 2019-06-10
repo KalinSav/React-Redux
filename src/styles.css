@@ -2,6 +2,11 @@ html {
   scroll-behavior: smooth;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .mainPage {
   font-family: Montserrat, sans-serif;
   text-align: center;
@@ -163,8 +168,16 @@ html {
   overflow: auto;
 }
 
+.countryTiles2 {
+  height: 533px;
+  max-height: 80%;
+  margin: 0 10%;
+  overflow: auto;
+}
+
 .countryTile {
   display: inline-block;
+  height: 170px;
   margin: 30px 20px;
   padding: 2%;
   max-width: 140px;
@@ -180,6 +193,7 @@ html {
 }
 
 .countryTile img {
+  height: 84px;
   max-width: 90%;
   max-height: 150px;
 }

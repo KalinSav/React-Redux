@@ -20,6 +20,7 @@ class BotTiles extends React.Component {
             "https://upload.wikimedia.org/wikipedia/commons/c/c3/North_america_blank_range_map.png",
           tileAlt: "North America",
           navLink: "/NorthAmerica",
+          component: NorthAmerica,
           tileId: 1
         },
         {
@@ -28,6 +29,7 @@ class BotTiles extends React.Component {
             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Europe_blank_map.png/655px-Europe_blank_map.png",
           tileAlt: "Europe",
           navLink: "/Europe",
+          component: Europe,
           tileId: 2
         },
         {
@@ -36,6 +38,7 @@ class BotTiles extends React.Component {
             "https://upload.wikimedia.org/wikipedia/commons/4/4a/BlankMap-Asia.png",
           tileAlt: "Asia and Middle East",
           navLink: "/AsiaMiddleEast",
+          component: AsiaMiddleEast,
           tileId: 3
         },
         {
@@ -44,6 +47,7 @@ class BotTiles extends React.Component {
             "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/BlankMap-South-America.png/400px-BlankMap-South-America.png",
           tileAlt: "South America",
           navLink: "/SouthAmerica",
+          component: SouthAmerica,
           tileId: 4
         },
         {
@@ -52,6 +56,7 @@ class BotTiles extends React.Component {
             "https://upload.wikimedia.org/wikipedia/commons/f/f9/BlankMap-Africa.svg",
           tileAlt: "Africa",
           navLink: "/Africa",
+          component: Africa,
           tileId: 5
         },
         {
@@ -60,6 +65,7 @@ class BotTiles extends React.Component {
             "https://upload.wikimedia.org/wikipedia/commons/5/55/Map_of_Australia_and_New_Zealand.png",
           tileAlt: "Australia and New Zealand",
           navLink: "/AustraliaNewZealand",
+          component: AustraliaNewZealand,
           tileId: 6
         }
       ]
@@ -91,10 +97,19 @@ class BotTiles extends React.Component {
       transition: "opacity 0.4s, height 0.3s ease-out"
     };
 
+    const routers = this.state.botTiles.map(continent => (
+      <Route
+        key={continent.tileId}
+        path={continent.navLink}
+        component={continent.component}
+      />
+    ));
+
     return (
       <HashRouter>
         <section>
           <div
+            id="test"
             className="botTiles"
             style={this.state.showBotTiles ? visible : invisible}
           >
@@ -107,17 +122,7 @@ class BotTiles extends React.Component {
             <button className="button" onClick={this.handleClick}>
               Back
             </button>
-            <div className="countryTiles">
-              <Route path="/NorthAmerica" component={NorthAmerica} />
-              <Route path="/Europe" component={Europe} />
-              <Route path="/AsiaMiddleEast" component={AsiaMiddleEast} />
-              <Route path="/SouthAmerica" component={SouthAmerica} />
-              <Route path="/Africa" component={Africa} />
-              <Route
-                path="/AustraliaNewZealand"
-                component={AustraliaNewZealand}
-              />
-            </div>
+            <div className="countryTiles">{routers}</div>
           </div>
         </section>
       </HashRouter>
