@@ -1,5 +1,5 @@
 import React from "react";
-import CountryTile from "../CountryTile.js";
+//import CountryTile from "../CountryTile.js";
 
 class NorthAmerica extends React.Component {
   state = {
@@ -22,7 +22,8 @@ class NorthAmerica extends React.Component {
   };
 
   render() {
-    return <CountryTile countryTiles={this.state.countryTiles} />;
+    //  return <CountryTile countryTiles={this.state.countryTiles} />;
+    return <div>aa</div>;
   }
 }
 

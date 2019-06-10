@@ -109,7 +109,6 @@ class BotTiles extends React.Component {
       <HashRouter>
         <section>
           <div
-            id="test"
             className="botTiles"
             style={this.state.showBotTiles ? visible : invisible}
           >

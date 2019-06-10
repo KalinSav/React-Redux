@@ -1,8 +1,11 @@
 import React from "react";
 import { NavLink, HashRouter } from "react-router-dom";
 
-const CountryTile = ({ countryTiles }) => {
-  const alphabetisedCountryTiles = countryTiles.sort(function(a, b) {
+const CountryTile = props => {
+  const alphabetisedCountryTiles = props.state.countryTiles.sort(function(
+    a,
+    b
+  ) {
     const countryNameA = a.tileTitle.toUpperCase();
     const countryNameB = b.tileTitle.toUpperCase();
     return countryNameA < countryNameB
@@ -15,7 +18,7 @@ const CountryTile = ({ countryTiles }) => {
   const countryTilesList = alphabetisedCountryTiles.map(countryTile => {
     return (
       <HashRouter key={countryTile.tileId}>
-        <NavLink to={countryTile.navLink} replace>
+        <NavLink to={countryTile.navLink} onClick={props.onClick} replace>
           <div className="countryTile">
             <h2>{countryTile.tileTitle}</h2>
             <img src={countryTile.tileImgSrc} alt={countryTile.tileAlt} />

@@ -32,7 +32,7 @@ class Africa extends React.Component {
   };
 
   render() {
-    return <CountryTile countryTiles={this.state.countryTiles} />;
+    return <CountryTile state={this.state} onClick={this.handleClick} />;
   }
 }
 
