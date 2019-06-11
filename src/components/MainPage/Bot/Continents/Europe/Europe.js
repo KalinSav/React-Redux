@@ -1,16 +1,13 @@
 import React from "react";
-import { Route, HashRouter, NavLink } from "react-router-dom";
+import { Route, HashRouter } from "react-router-dom";
 import CountryTile from "../CountryTile.js";
 import Spain from "./Countries/Spain.js";
 import France from "./Countries/France.js";
-import NorthAmericaDatabase from "../NorthAmerica/NorthAmericaDatabase";
 
 class Europe extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      NorthAmericaDatabase: NorthAmericaDatabase,
-      showCountryTiles: true,
       countryTiles: [
         {
           tileTitle: "Spain",
@@ -32,17 +29,14 @@ class Europe extends React.Component {
         }
       ]
     };
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    console.log(document.getElementsByClassName("countryTile"));
-    document.getElementById("testt").style.display = "none";
-  }
+  // handleClick() {
+  //   document.getElementById("countryTile").style.display = "none";
+  // }
 
-  componentDidMount() {
-    console.log("TEST1");
-  }
+  componentDidMount() {}
 
   render() {
     const routers = this.state.countryTiles.map(country => (
@@ -54,18 +48,10 @@ class Europe extends React.Component {
     ));
     return (
       <HashRouter>
-        <div id="testt">
-          <CountryTile state={this.state} onClick={this.handleClick} />
-          <NavLink to="/NorthAmerica">NAM</NavLink>
+        <div id="countryTile">
+          <CountryTile state={this.state} />
         </div>
-
-        <div>
-          {routers} <br />
-          <Route
-            path={this.state.NorthAmericaDatabase[0].navLink}
-            component={this.state.NorthAmericaDatabase[0]}
-          />
-        </div>
+        <div>{routers}</div>
       </HashRouter>
     );
   }

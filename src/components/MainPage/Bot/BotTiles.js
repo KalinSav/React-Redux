@@ -112,7 +112,7 @@ class BotTiles extends React.Component {
             className="botTiles"
             style={this.state.showBotTiles ? visible : invisible}
           >
-            <BotTile state={this.state} onClick={this.handleClick} />
+            <BotTile state={this.state} onClick={() => this.handleClick()} />
           </div>
           <div
             className="botTiles"

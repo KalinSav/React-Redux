@@ -185,13 +185,6 @@ a {
   overflow: auto;
 }
 
-.countryTiles2 {
-  height: 533px;
-  max-height: 80%;
-  margin: 0 10%;
-  overflow: auto;
-}
-
 .countryTile {
   display: inline-block;
   height: 170px;
@@ -213,6 +206,50 @@ a {
   height: 84px;
   max-width: 90%;
   max-height: 150px;
+}
+
+.buttonsMenu {
+  background-color: white;
+  position: sticky;
+  top: 0;
+}
+
+.buttonsMenu h1 {
+  margin: 0;
+}
+
+.countryProfileMenu {
+  background-color: #fdc010;
+  padding: 0;
+}
+
+.countryProfileMenu li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+
+.countryProfileContent {
+  text-align: left;
+  font-family: Calibri;
+  font-size: 1.25em;
+  background-color: #fff;
+}
+
+.countryProfileMenu li a {
+  font-weight: bold;
+  padding: 10px;
+  display: inline-block;
+}
+
+.countryProfileMenu li a:hover {
+  background-color: black;
+  color: #fff;
+}
+
+.countryProfileMenu li a:focus {
+  background-color: black;
+  color: #fff;
 }
 
 #commentSection {

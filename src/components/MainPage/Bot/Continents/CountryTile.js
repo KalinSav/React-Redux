@@ -1,5 +1,13 @@
 import React from "react";
 import { NavLink, HashRouter } from "react-router-dom";
+import lifecycle from "react-pure-lifecycle";
+
+const methods = {
+  componentDidMount() {
+    document.getElementById("countryTile").style.display = "inline";
+    //   console.log("display inline");
+  }
+};
 
 const CountryTile = props => {
   const alphabetisedCountryTiles = props.state.countryTiles.sort(function(
@@ -30,4 +38,4 @@ const CountryTile = props => {
   return <div>{countryTilesList}</div>;
 };
 
-export default CountryTile;
+export default lifecycle(methods)(CountryTile);
