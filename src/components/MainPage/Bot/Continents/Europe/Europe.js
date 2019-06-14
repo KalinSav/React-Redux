@@ -14,7 +14,7 @@ class Europe extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg",
           tileAlt: "Spain",
-          navLink: "/Europe/Spain",
+          navLink: `${this.props.location.pathname}/Spain`,
           component: Spain,
           tileId: 1
         },
@@ -23,18 +23,13 @@ class Europe extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg",
           tileAlt: "France",
-          navLink: "/Europe/France",
+          navLink: `${this.props.location.pathname}/France`,
           component: France,
           tileId: 2
         }
       ]
     };
-    // this.handleClick = this.handleClick.bind(this);
   }
-
-  // handleClick() {
-  //   document.getElementById("countryTile").style.display = "none";
-  // }
 
   componentDidMount() {}
 

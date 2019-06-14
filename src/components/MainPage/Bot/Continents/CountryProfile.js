@@ -4,8 +4,10 @@ import lifecycle from "react-pure-lifecycle";
 
 const methods = {
   componentDidMount() {
-    document.getElementById("countryTile").style.display = "none";
-    //  console.log("display none");
+    const countryTile = document.getElementById("countryTile");
+    if (countryTile.style.display !== "none") {
+      countryTile.style.display = "none";
+    }
   }
 };
 

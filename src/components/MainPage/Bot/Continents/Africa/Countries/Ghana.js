@@ -10,6 +10,7 @@ class Ghana extends React.Component {
         {
           navLink: `${this.props.location.pathname}/keyFacts`,
           title: "Key Facts",
+          tileId: 1,
           content: () => (
             <ul>
               <li>Population (2017) - 29 million</li>
@@ -23,6 +24,7 @@ class Ghana extends React.Component {
         {
           navLink: `${this.props.location.pathname}/overview`,
           title: "Overview",
+          tileId: 2,
           content: () => (
             <div>
               <p>
@@ -69,6 +71,7 @@ class Ghana extends React.Component {
         {
           navLink: `${this.props.location.pathname}/tips`,
           title: "Tips",
+          tileId: 3,
           content: () => (
             <ul>
               <li>
@@ -104,6 +107,7 @@ class Ghana extends React.Component {
         {
           navLink: `${this.props.location.pathname}/teachingStyle`,
           title: "Teaching Style",
+          tileId: 4,
           content: () => (
             <div>
               <p>
@@ -151,6 +155,7 @@ class Ghana extends React.Component {
         {
           navLink: `${this.props.location.pathname}/assignments`,
           title: "Assignments",
+          tileId: 5,
           content: () => (
             <p>
               At undergraduate level in Ghana exam style assessments were
@@ -163,6 +168,7 @@ class Ghana extends React.Component {
         {
           navLink: `${this.props.location.pathname}/plagiarism`,
           title: "Plagiarism",
+          tileId: 6,
           content: () => (
             <p>
               There is little emphasis on plagiarism in Ghana and there are no
@@ -179,6 +185,7 @@ class Ghana extends React.Component {
         {
           navLink: `${this.props.location.pathname}/digitalTechnology`,
           title: "Digital Technology",
+          tileId: 7,
           content: () => (
             <div>
               <p>
@@ -202,6 +209,7 @@ class Ghana extends React.Component {
         {
           navLink: `${this.props.location.pathname}/regionalVariations`,
           title: "Regional Variations",
+          tileId: 8,
           content: () => (
             <div>
               <p>

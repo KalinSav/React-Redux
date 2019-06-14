@@ -10,42 +10,50 @@ class Spain extends React.Component {
         {
           navLink: `${this.props.location.pathname}/keyFacts`,
           title: "Key Facts",
-          content: () => <div>Helloo</div>
+          tileId: 1,
+          content: () => <div>Key Facts</div>
         },
         {
           navLink: `${this.props.location.pathname}/overview`,
           title: "Overview",
-          content: () => <div>Helloo2</div>
+          tileId: 2,
+          content: () => <div>Overview</div>
         },
         {
           navLink: `${this.props.location.pathname}/tips`,
           title: "Tips",
-          content: () => <div>Helloo2</div>
+          tileId: 3,
+          content: () => <div>Tips</div>
         },
         {
           navLink: `${this.props.location.pathname}/teachingStyle`,
           title: "Teaching Style",
-          content: () => <div>Helloo2</div>
+          tileId: 4,
+          content: () => <div>Teaching Style</div>
         },
         {
           navLink: `${this.props.location.pathname}/assignments`,
           title: "Assignments",
-          content: () => <div>Helloo2</div>
+          tileId: 5,
+          content: () => <div>Assignments</div>
         },
         {
           navLink: `${this.props.location.pathname}/plagiarism`,
           title: "Plagiarism",
-          content: () => <div>Helloo2</div>
+          tileId: 6,
+          content: () => <div>Plagiarism</div>
         },
         {
           navLink: `${this.props.location.pathname}/digitalTechnology`,
           title: "Digital Technology",
-          content: () => <div>Helloo2</div>
+          tileId: 7,
+          content: () => <div>Digital Technology</div>
         },
         {
           navLink: `${this.props.location.pathname}/regionalVariations`,
           title: "Regional Variations",
-          content: () => <div>Helloo2</div>
+          tileId: 8,
+          content: () => <div>Regional Variations</div>
         }
       ]
     };

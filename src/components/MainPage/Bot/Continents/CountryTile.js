@@ -4,7 +4,11 @@ import lifecycle from "react-pure-lifecycle";
 
 const methods = {
   componentDidMount() {
-    document.getElementById("countryTile").style.display = "inline";
+    // const countryTile = document.getElementById("countryTile");
+    // if (countryTile.style.display !== "inline-block") {
+    //   countryTile.style.display = "inline-block";
+    //   console.log("display inline-block");
+    // }
     //   console.log("display inline");
   }
 };

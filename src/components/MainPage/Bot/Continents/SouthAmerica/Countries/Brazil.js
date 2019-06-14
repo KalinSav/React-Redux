@@ -1,7 +1,7 @@
 import React from "react";
 import CountryProfile from "../../CountryProfile.js";
 
-class Canada extends React.Component {
+class Brazil extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -68,4 +68,4 @@ class Canada extends React.Component {
   }
 }
 
-export default Canada;
+export default Brazil;
