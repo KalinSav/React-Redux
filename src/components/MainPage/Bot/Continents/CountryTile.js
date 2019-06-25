@@ -30,7 +30,7 @@ const CountryTile = props => {
   const countryTilesList = alphabetisedCountryTiles.map(countryTile => {
     return (
       <HashRouter key={countryTile.tileId}>
-        <NavLink to={countryTile.navLink} onClick={props.onClick} replace>
+        <NavLink to={countryTile.navLink} replace>
           <div className="countryTile">
             <h2>{countryTile.tileTitle}</h2>
             <img src={countryTile.tileImgSrc} alt={countryTile.tileAlt} />
