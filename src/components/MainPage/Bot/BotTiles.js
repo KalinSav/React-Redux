@@ -74,11 +74,27 @@ class BotTiles extends React.Component {
   }
 
   handleClick() {
+    const listOfCountryTiles = document.getElementById("listOfCountryTiles");
+    const countryProfile = document.getElementById("countryProfile");
+    // This takes you to the tiles of countries of the continent you've selected
     if (this.state.showBotTiles === true) {
       this.setState({ showBotTiles: false });
-    } else {
+    }
+    // This takes you from the tiles of countries up to the main view with all continents (when you press the Back button)
+    if (
+      this.state.showBotTiles === false &&
+      listOfCountryTiles.style.display !== "none"
+    ) {
+      listOfCountryTiles.style.display = "none";
       this.setState({ showBotTiles: true });
-      document.location.href = "#/";
+    }
+    // This takes you from the profile of the country you've selected up to the tiles of countries (when you press the Back button)
+    if (
+      this.state.showBotTiles === false &&
+      listOfCountryTiles.style.display === "none"
+    ) {
+      countryProfile.style.display = "none";
+      listOfCountryTiles.removeAttribute("style");
     }
   }
 

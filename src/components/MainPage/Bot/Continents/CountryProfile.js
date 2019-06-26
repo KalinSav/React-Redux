@@ -4,11 +4,17 @@ import lifecycle from "react-pure-lifecycle";
 
 const methods = {
   componentDidMount() {
-    const countryTile = document.getElementById("countryTile");
-    if (countryTile.style.display !== "none") {
-      countryTile.style.display = "none";
+    // This runs when you've clicked on a country tile and the country profile mounts. It hides the country tiles.
+    const listOfCountryTiles = document.getElementById("listOfCountryTiles");
+    if (listOfCountryTiles.style.display !== "none") {
+      listOfCountryTiles.style.display = "none";
     }
   }
+};
+
+const test = () => {
+  console.log("test");
+  document.querySelector("#countryProfile p").style.display = "none";
 };
 
 const CountryProfile = props => {
@@ -28,11 +34,16 @@ const CountryProfile = props => {
   ));
   return (
     <HashRouter>
-      <div className="buttonsMenu">
-        <h1>{props.state.countryName}</h1>
-        <ul className="countryProfileMenu">{navLinks}</ul>
+      <div id="countryProfile">
+        <div className="buttonsMenu">
+          <h1>{props.state.countryName}</h1>
+          <ul className="countryProfileMenu" onClick={() => test()}>
+            {navLinks}
+          </ul>
+        </div>
+        <div className="countryProfileContent">{routers}</div>
+        <p>Hello</p>
       </div>
-      <div className="countryProfileContent">{routers}</div>
     </HashRouter>
   );
 };

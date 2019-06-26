@@ -13,6 +13,19 @@ const methods = {
   }
 };
 
+const betweenTileAndProfile = e => {
+  // This makes sure you are taken to the relevant country profile when you click on its tile (if you've clicked Back button prior to it)
+  const listOfCountryTiles = document.getElementById("listOfCountryTiles");
+  const countryProfile = document.getElementById("countryProfile");
+  if (e.currentTarget.style.display !== "none") {
+    listOfCountryTiles.style.display = "none";
+    // This if statement is to remove an error caused by the yet-inexistatant countryProfile
+    if (countryProfile !== null) {
+      countryProfile.removeAttribute("style");
+    }
+  }
+};
+
 const CountryTile = props => {
   const alphabetisedCountryTiles = props.state.countryTiles.sort(function(
     a,
@@ -31,7 +44,7 @@ const CountryTile = props => {
     return (
       <HashRouter key={countryTile.tileId}>
         <NavLink to={countryTile.navLink} replace>
-          <div className="countryTile">
+          <div className="countryTile" onClick={e => betweenTileAndProfile(e)}>
             <h2>{countryTile.tileTitle}</h2>
             <img src={countryTile.tileImgSrc} alt={countryTile.tileAlt} />
           </div>

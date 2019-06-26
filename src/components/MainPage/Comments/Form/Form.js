@@ -18,26 +18,21 @@ class Form extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const data = this.state;
-    this.setState(
-      prevState => {
-        const newId = data.commentsDatabase.length;
-        const newCommentsDatabase = prevState.commentsDatabase.map(
-          item => item
-        );
-        newCommentsDatabase.push({
-          firstName: data.firstName,
-          comment: data.comment,
-          id: newId
-        });
-        return {
-          commentsDatabase: newCommentsDatabase,
-          firstName: "",
-          comment: "",
-          id: null
-        };
-      },
-      () => console.log(data.commentsDatabase)
-    );
+    this.setState(prevState => {
+      const newId = data.commentsDatabase.length;
+      const newCommentsDatabase = prevState.commentsDatabase.map(item => item);
+      newCommentsDatabase.push({
+        firstName: data.firstName,
+        comment: data.comment,
+        id: newId
+      });
+      return {
+        commentsDatabase: newCommentsDatabase,
+        firstName: "",
+        comment: "",
+        id: null
+      };
+    });
     this.createComment(data.firstName, data.comment);
     document.querySelector(".commentsTiles button").disabled = true;
     document.querySelector(".commentsTiles button").style.cursor = "no-drop";
@@ -59,21 +54,40 @@ class Form extends React.Component {
 
   handleChange(e) {
     e.preventDefault();
+    //  e.target.addEventListener("keyup" , () => e.target.value = e.target.value.replace(/[&*<>]/g, ''))
     this.setState(
       {
         [e.target.name]: e.target.value
       },
       () => {
-        if (this.state.firstName && this.state.comment !== "") {
-          document.querySelector(".commentsTiles button").disabled = false;
-          document.querySelector(".commentsTiles button").style.cursor =
-            "pointer";
-          document.querySelector(".commentsTiles button").style.opacity = "1";
+        const formErrorMsg = document.getElementById("formErrorMsg");
+        const commentsTilesButton = document.querySelector(
+          ".commentsTiles button"
+        );
+
+        if (
+          // Error message only shown between 1 and 3 characters in the name input
+          this.state.firstName.length === 0 ||
+          this.state.firstName.length >= 3
+        ) {
+          formErrorMsg.style.visibility = "hidden";
         } else {
-          document.querySelector(".commentsTiles button").disabled = true;
-          document.querySelector(".commentsTiles button").style.cursor =
-            "no-drop";
-          document.querySelector(".commentsTiles button").style.opacity = "0.4";
+          formErrorMsg.style.visibility = "visible";
+        }
+
+        if (
+          // If the values entered into the fields are more than 3 characters
+          this.state.firstName.length >= 3 &&
+          this.state.comment.length
+        ) {
+          commentsTilesButton.disabled = false;
+          commentsTilesButton.style.cursor = "pointer";
+          commentsTilesButton.style.opacity = "1";
+        } else {
+          // if the values entered into the fields are less than 3 characters
+          commentsTilesButton.disabled = true;
+          commentsTilesButton.style.cursor = "no-drop";
+          commentsTilesButton.style.opacity = "0.4";
         }
       }
     );
@@ -109,23 +123,30 @@ class Form extends React.Component {
     return (
       <div>
         <h1>Type in your name and comment below</h1>
-        <br />
         <form onSubmit={this.handleSubmit}>
           <p>
             <input
               name="firstName"
               value={firstName}
               type="text"
+              autoComplete="off"
+              pattern="[a-zA-Z\s]{3,}"
+              title="Only letters and spaces allowed"
+              className="inputBox"
               placeholder="Your name"
               onChange={this.handleChange}
             />
+          </p>
+          <p id="formErrorMsg">
+            Input field must be at least 3 characters long.
           </p>
           <p>
             <textarea
               name="comment"
               value={comment}
-              rows="4"
+              rows="3"
               cols="40"
+              className="inputBox"
               placeholder="Comment..."
               onChange={this.handleChange}
             />

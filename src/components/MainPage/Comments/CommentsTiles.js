@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "../../Form/Form.js";
+import Form from "./Form/Form.js";
 
 class CommentsTiles extends React.Component {
   state = {};

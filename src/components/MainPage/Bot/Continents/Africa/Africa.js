@@ -56,7 +56,7 @@ class Africa extends React.Component {
     ));
     return (
       <HashRouter>
-        <div id="countryTile">
+        <div id="listOfCountryTiles">
           <CountryTile state={this.state} onClick={this.handleClick} />
         </div>
         {routers}
