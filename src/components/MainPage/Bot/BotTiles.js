@@ -71,8 +71,12 @@ class BotTiles extends React.Component {
       ]
     };
     this.handleClick = this.handleClick.bind(this);
+    this.test = this.test.bind(this);
   }
 
+  test() {
+    console.log(this.state.botTiles[0].tileTitle);
+  }
   handleClick() {
     const listOfCountryTiles = document.getElementById("listOfCountryTiles");
     const countryProfile = document.getElementById("countryProfile");
@@ -85,7 +89,6 @@ class BotTiles extends React.Component {
       this.state.showBotTiles === false &&
       listOfCountryTiles.style.display !== "none"
     ) {
-      listOfCountryTiles.style.display = "none";
       this.setState({ showBotTiles: true });
     }
     // This takes you from the profile of the country you've selected up to the tiles of countries (when you press the Back button)
@@ -94,7 +97,7 @@ class BotTiles extends React.Component {
       listOfCountryTiles.style.display === "none"
     ) {
       countryProfile.style.display = "none";
-      listOfCountryTiles.removeAttribute("style");
+      listOfCountryTiles.style.display = "";
     }
   }
 
@@ -124,6 +127,7 @@ class BotTiles extends React.Component {
     return (
       <HashRouter>
         <section>
+          <input type="text" onChange={() => this.test()} />
           <div
             className="botTiles"
             style={this.state.showBotTiles ? visible : invisible}

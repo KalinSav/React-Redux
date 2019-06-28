@@ -12,11 +12,6 @@ const methods = {
   }
 };
 
-const test = () => {
-  console.log("test");
-  document.querySelector("#countryProfile p").style.display = "none";
-};
-
 const CountryProfile = props => {
   const navLinks = props.state.data.map(button => (
     <li key={button.title}>
@@ -36,13 +31,10 @@ const CountryProfile = props => {
     <HashRouter>
       <div id="countryProfile">
         <div className="buttonsMenu">
-          <h1>{props.state.countryName}</h1>
-          <ul className="countryProfileMenu" onClick={() => test()}>
-            {navLinks}
-          </ul>
+          <h2>{props.state.countryName}</h2>
+          <ul className="countryProfileMenu">{navLinks}</ul>
         </div>
         <div className="countryProfileContent">{routers}</div>
-        <p>Hello</p>
       </div>
     </HashRouter>
   );

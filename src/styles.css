@@ -182,7 +182,7 @@ a {
   height: 533px;
   max-height: 80%;
   margin: 0 10%;
-  overflow: auto;
+  overflow-y: scroll;
 }
 
 .countryTile {
@@ -214,7 +214,7 @@ a {
   top: 0;
 }
 
-.buttonsMenu h1 {
+.buttonsMenu h2 {
   margin: 0;
 }
 
