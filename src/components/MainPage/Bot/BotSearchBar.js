@@ -1,11 +1,12 @@
 import React from "react";
 import { NavLink, HashRouter } from "react-router-dom";
+import Countries from "./Continents/Countries";
 
 class BotSearchBar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.items = ["Spain", "France", "Sweden"];
+    this.countries = Countries;
     this.state = {
       suggestions: [],
       text: ""
@@ -17,7 +18,8 @@ class BotSearchBar extends React.Component {
     let suggestions = [];
     if (value.length > 0) {
       const regex = new RegExp(`^${value}`, "i");
-      suggestions = this.items.sort().filter(v => regex.test(v));
+      const countryNames = this.countries.map(country => country.name);
+      suggestions = countryNames.sort().filter(v => regex.test(v));
     }
     this.setState(() => ({ suggestions, text: value }));
   };
@@ -43,12 +45,24 @@ class BotSearchBar extends React.Component {
     if (suggestions.length === 0) {
       return null;
     }
+
+    // findIt(item) {
+    //   const lala = this.countries.map(element => {
+    //     if (element.name === item) {
+    //       return element.route
+    //     }
+    // }
+
     return (
       <HashRouter>
         <ul>
           {suggestions.map(item => (
             <li>
-              <NavLink to={`${this.props.lala[1].navLink}/${item}`}>
+              {/* <NavLink to={`Europe/${item}`}> */}
+              {/* // const countryNames = this.countries.map(country => ({name: country.name, route: country.route}))
+                // const result = countryNames.find(element => element.name === item)
+                // return result */}
+              <NavLink to={item => this.findIt(item)}>
                 <span onClick={() => this.suggestionSelected(item)}>
                   {item}
                 </span>
@@ -65,13 +79,7 @@ class BotSearchBar extends React.Component {
     return (
       <div>
         <input value={text} onChange={this.onTextChange} type="text" />
-        {/* {this.renderSuggestions()} */}
-
-        <HashRouter>
-          <NavLink to="Europe/Spain">
-            <span onClick={() => this.suggestionSelected()}>Spain</span>
-          </NavLink>
-        </HashRouter>
+        {this.renderSuggestions()}
       </div>
     );
   }

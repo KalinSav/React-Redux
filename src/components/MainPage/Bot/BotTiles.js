@@ -1,6 +1,6 @@
 import React from "react";
 import BotTile from "./BotTile.js";
-import { Route, NavLink, HashRouter } from "react-router-dom";
+import { Route, HashRouter } from "react-router-dom";
 import BotSearchBar from "./BotSearchBar";
 import NorthAmerica from "./Continents/NorthAmerica/NorthAmerica.js";
 import Europe from "./Continents/Europe/Europe.js";
@@ -8,11 +8,12 @@ import AsiaMiddleEast from "./Continents/AsiaMiddleEast/AsiaMiddleEast.js";
 import SouthAmerica from "./Continents/SouthAmerica/SouthAmerica.js";
 import Africa from "./Continents/Africa/Africa.js";
 import AustraliaNewZealand from "./Continents/AustraliaNewZealand/AustraliaNewZealand.js";
-import Spain from "./Continents/Europe/Countries/Spain.js";
+import Countries from "./Continents/Countries";
 
 class BotTiles extends React.Component {
   constructor(props) {
     super(props);
+    this.countries = Countries;
     this.state = {
       showBotTiles: true,
       botTiles: [
@@ -73,12 +74,8 @@ class BotTiles extends React.Component {
       ]
     };
     this.handleClick = this.handleClick.bind(this);
-    this.test = this.test.bind(this);
   }
 
-  test() {
-    console.log(this.state.botTiles[0].tileTitle);
-  }
   handleClick() {
     const listOfCountryTiles = document.getElementById("listOfCountryTiles");
     const countryProfile = document.getElementById("countryProfile");
@@ -118,6 +115,14 @@ class BotTiles extends React.Component {
       transition: "opacity 0.4s, height 0.3s ease-out"
     };
 
+    const countriesRouters = this.countries.map(country => (
+      <Route
+        key={country.id}
+        path={country.route}
+        component={country.component}
+      />
+    ));
+
     const routers = this.state.botTiles.map(continent => (
       <Route
         key={continent.tileId}
@@ -129,19 +134,15 @@ class BotTiles extends React.Component {
     return (
       <HashRouter>
         <section>
-          <input type="text" onChange={() => this.test()} />
-
           <div
             className="botTiles"
             style={this.state.showBotTiles ? visible : invisible}
           >
             <BotSearchBar
-              lala={this.state.botTiles}
+              botTiles={this.state.botTiles}
               onClick={() => this.handleClick()}
             />
-            <NavLink to="Europe/Spain" replace>
-              Spain
-            </NavLink>
+
             <BotTile state={this.state} onClick={() => this.handleClick()} />
           </div>
           <div
@@ -153,7 +154,7 @@ class BotTiles extends React.Component {
             </button>
             <div className="countryTiles">
               {routers}
-              <Route path="/Europe/Spain" component={Spain} />
+              {countriesRouters}
             </div>
           </div>
         </section>
