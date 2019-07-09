@@ -1,6 +1,7 @@
 import React from "react";
 import BotTile from "./BotTile.js";
 import { Route, HashRouter } from "react-router-dom";
+import BotSearchBar from "./BotSearchBar";
 import NorthAmerica from "./Continents/NorthAmerica/NorthAmerica.js";
 import Europe from "./Continents/Europe/Europe.js";
 import AsiaMiddleEast from "./Continents/AsiaMiddleEast/AsiaMiddleEast.js";
@@ -128,10 +129,15 @@ class BotTiles extends React.Component {
       <HashRouter>
         <section>
           <input type="text" onChange={() => this.test()} />
+
           <div
             className="botTiles"
             style={this.state.showBotTiles ? visible : invisible}
           >
+            <BotSearchBar
+              lala={this.state.botTiles}
+              onClick={() => this.handleClick()}
+            />
             <BotTile state={this.state} onClick={() => this.handleClick()} />
           </div>
           <div
