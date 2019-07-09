@@ -1,6 +1,6 @@
 import React from "react";
 import BotTile from "./BotTile.js";
-import { Route, HashRouter } from "react-router-dom";
+import { Route, NavLink, HashRouter } from "react-router-dom";
 import BotSearchBar from "./BotSearchBar";
 import NorthAmerica from "./Continents/NorthAmerica/NorthAmerica.js";
 import Europe from "./Continents/Europe/Europe.js";
@@ -8,6 +8,7 @@ import AsiaMiddleEast from "./Continents/AsiaMiddleEast/AsiaMiddleEast.js";
 import SouthAmerica from "./Continents/SouthAmerica/SouthAmerica.js";
 import Africa from "./Continents/Africa/Africa.js";
 import AustraliaNewZealand from "./Continents/AustraliaNewZealand/AustraliaNewZealand.js";
+import Spain from "./Continents/Europe/Countries/Spain.js";
 
 class BotTiles extends React.Component {
   constructor(props) {
@@ -138,6 +139,9 @@ class BotTiles extends React.Component {
               lala={this.state.botTiles}
               onClick={() => this.handleClick()}
             />
+            <NavLink to="Europe/Spain" replace>
+              Spain
+            </NavLink>
             <BotTile state={this.state} onClick={() => this.handleClick()} />
           </div>
           <div
@@ -147,7 +151,10 @@ class BotTiles extends React.Component {
             <button className="button" onClick={this.handleClick}>
               Back
             </button>
-            <div className="countryTiles">{routers}</div>
+            <div className="countryTiles">
+              {routers}
+              <Route path="/Europe/Spain" component={Spain} />
+            </div>
           </div>
         </section>
       </HashRouter>

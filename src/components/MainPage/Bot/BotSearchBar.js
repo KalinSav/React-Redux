@@ -24,11 +24,18 @@ class BotSearchBar extends React.Component {
 
   suggestionSelected(value) {
     this.props.onClick();
+    // const listOfCountryTiles = document.getElementById("listOfCountryTiles");
+    // listOfCountryTiles.style.display = "none";
+    const listOfCountryTiles = document.getElementById("listOfCountryTiles");
+    if (listOfCountryTiles.style.display !== "none") {
+      listOfCountryTiles.style.display = "none";
+    }
+
     this.setState(() => ({
       text: value,
       suggestions: []
     }));
-    console.log("ttt");
+    console.log("tt4tt");
   }
 
   renderSuggestions() {
@@ -41,7 +48,7 @@ class BotSearchBar extends React.Component {
         <ul>
           {suggestions.map(item => (
             <li>
-              <NavLink to={`${this.props.lala[1].navLink}/${item}/keyFacts`}>
+              <NavLink to={`${this.props.lala[1].navLink}/${item}`}>
                 <span onClick={() => this.suggestionSelected(item)}>
                   {item}
                 </span>
@@ -58,7 +65,13 @@ class BotSearchBar extends React.Component {
     return (
       <div>
         <input value={text} onChange={this.onTextChange} type="text" />
-        {this.renderSuggestions()}
+        {/* {this.renderSuggestions()} */}
+
+        <HashRouter>
+          <NavLink to="Europe/Spain">
+            <span onClick={() => this.suggestionSelected()}>Spain</span>
+          </NavLink>
+        </HashRouter>
       </div>
     );
   }
