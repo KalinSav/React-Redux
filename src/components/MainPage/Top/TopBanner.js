@@ -1,17 +1,6 @@
 import React from "react";
 
 class TopBanner extends React.Component {
-  componentDidMount() {
-    console.log("asd2");
-    const NavLinks = document.querySelectorAll(".topBanner a");
-    [].forEach.call(NavLinks, eachNavLink => {
-      eachNavLink.addEventListener("click", () => this.handleClick());
-    });
-  }
-
-  handleClick() {
-    console.log("asd");
-  }
   render() {
     return (
       <header>

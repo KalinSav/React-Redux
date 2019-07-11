@@ -26,8 +26,6 @@ class BotSearchBar extends React.Component {
 
   suggestionSelected(value) {
     this.props.onClick();
-    // const listOfCountryTiles = document.getElementById("listOfCountryTiles");
-    // listOfCountryTiles.style.display = "none";
     const listOfCountryTiles = document.getElementById("listOfCountryTiles");
     if (listOfCountryTiles.style.display !== "none") {
       listOfCountryTiles.style.display = "none";
@@ -37,7 +35,17 @@ class BotSearchBar extends React.Component {
       text: value,
       suggestions: []
     }));
-    console.log("tt4tt");
+    console.log("tt");
+  }
+
+  findRoute(item) {
+    const foundRoute = this.countries.find(element => {
+      if (element.name === item) {
+        return element.route;
+      }
+      return null;
+    });
+    return foundRoute.route;
   }
 
   renderSuggestions() {
@@ -46,23 +54,12 @@ class BotSearchBar extends React.Component {
       return null;
     }
 
-    // findIt(item) {
-    //   const lala = this.countries.map(element => {
-    //     if (element.name === item) {
-    //       return element.route
-    //     }
-    // }
-
     return (
       <HashRouter>
         <ul>
           {suggestions.map(item => (
             <li>
-              {/* <NavLink to={`Europe/${item}`}> */}
-              {/* // const countryNames = this.countries.map(country => ({name: country.name, route: country.route}))
-                // const result = countryNames.find(element => element.name === item)
-                // return result */}
-              <NavLink to={item => this.findIt(item)}>
+              <NavLink to={this.findRoute(item)}>
                 <span onClick={() => this.suggestionSelected(item)}>
                   {item}
                 </span>
