@@ -89,6 +89,7 @@ class BotTiles extends React.Component {
       listOfCountryTiles.style.display !== "none"
     ) {
       this.setState({ showBotTiles: true });
+      window.location.href = "#/";
     }
     // This takes you from the profile of the country you've selected up to the tiles of countries (when you press the Back button)
     if (
@@ -97,6 +98,16 @@ class BotTiles extends React.Component {
     ) {
       countryProfile.style.display = "none";
       listOfCountryTiles.style.display = "";
+      var test = document.querySelector("#countryProfile h2").innerText;
+      const foundRoute = this.countries.find(element => {
+        if (element.name === test) {
+          return element.route;
+        }
+        return null;
+      });
+      console.log(foundRoute);
+
+      window.location.href = `#/${foundRoute.route}`;
     }
   }
 

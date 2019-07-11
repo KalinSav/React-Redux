@@ -33,7 +33,7 @@ const Countries = [
     name: "France",
     component: France,
     id: 5,
-    route: "Europe/France"
+    route: "Europe"
   }
 ];
 
