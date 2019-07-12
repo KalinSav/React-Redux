@@ -15,7 +15,7 @@ class Africa extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg",
           tileAlt: "Ghana",
-          navLink: `${this.props.location.pathname}/Ghana`,
+          navLink: "/Africa/Ghana",
           component: Ghana,
           tileId: 1
         },
@@ -24,7 +24,7 @@ class Africa extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg",
           tileAlt: "Nigeria",
-          navLink: `${this.props.location.pathname}/Nigeria`,
+          navLink: "/Africa/Nigeria",
           component: Nigeria,
           tileId: 2
         },
@@ -33,7 +33,7 @@ class Africa extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_C%C3%B4te_d%27Ivoire.svg",
           tileAlt: "Ivory Coast",
-          navLink: `${this.props.location.pathname}/IvoryCoast`,
+          navLink: "/Africa/IvoryCoast",
           component: IvoryCoast,
           tileId: 3
         }

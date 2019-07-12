@@ -15,9 +15,7 @@ const methods = {
 const CountryProfile = props => {
   const navLinks = props.state.data.map(button => (
     <li key={button.title}>
-      <NavLink to={button.navLink} replace>
-        {button.title}
-      </NavLink>
+      <NavLink to={button.navLink}>{button.title}</NavLink>
     </li>
   ));
   const routers = props.state.data.map(contentPiece => (

@@ -8,32 +8,27 @@ const Countries = [
   {
     name: "Ghana",
     component: Ghana,
-    id: 1,
-    route: "Africa/Ghana"
+    continent: "Africa"
   },
   {
     name: "Nigeria",
     component: Nigeria,
-    id: 2,
-    route: "Africa/Nigeria"
+    continent: "Africa"
   },
   {
     name: "Ivory Coast",
     component: IvoryCoast,
-    id: 3,
-    route: "Africa/IvoryCoast"
+    continent: "Africa"
   },
   {
     name: "Spain",
     component: Spain,
-    id: 4,
-    route: "Europe/Spain"
+    continent: "Europe"
   },
   {
     name: "France",
     component: France,
-    id: 5,
-    route: "Europe"
+    continent: "Europe"
   }
 ];
 

@@ -8,49 +8,49 @@ class France extends React.Component {
       countryName: this.constructor.name,
       data: [
         {
-          navLink: `${this.props.location.pathname}/keyFacts`,
+          navLink: `/Europe/France/keyFacts`,
           title: "Key Facts",
           tileId: 1,
           content: () => <div>Key Facts</div>
         },
         {
-          navLink: `${this.props.location.pathname}/overview`,
+          navLink: `/Europe/France/overview`,
           title: "Overview",
           tileId: 2,
           content: () => <div>Overview</div>
         },
         {
-          navLink: `${this.props.location.pathname}/tips`,
+          navLink: `/Europe/France/tips`,
           title: "Tips",
           tileId: 3,
           content: () => <div>Tips</div>
         },
         {
-          navLink: `${this.props.location.pathname}/teachingStyle`,
+          navLink: `/Europe/France/teachingStyle`,
           title: "Teaching Style",
           tileId: 4,
           content: () => <div>Teaching Style</div>
         },
         {
-          navLink: `${this.props.location.pathname}/assignments`,
+          navLink: `/Europe/France/assignments`,
           title: "Assignments",
           tileId: 5,
           content: () => <div>Assignments</div>
         },
         {
-          navLink: `${this.props.location.pathname}/plagiarism`,
+          navLink: `/Europe/France/plagiarism`,
           title: "Plagiarism",
           tileId: 6,
           content: () => <div>Plagiarism</div>
         },
         {
-          navLink: `${this.props.location.pathname}/digitalTechnology`,
+          navLink: `/Europe/France/digitalTechnology`,
           title: "Digital Technology",
           tileId: 7,
           content: () => <div>Digital Technology</div>
         },
         {
-          navLink: `${this.props.location.pathname}/regionalVariations`,
+          navLink: `/Europe/France/regionalVariations`,
           title: "Regional Variations",
           tileId: 8,
           content: () => <div>Regional Variations</div>

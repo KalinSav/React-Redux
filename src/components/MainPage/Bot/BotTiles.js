@@ -76,6 +76,20 @@ class BotTiles extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+    // if (document.getElementById("listOfCountryTiles")) {
+    //   console.log("Mount exists2");
+    // }
+    // console.log("Mount doesnt exist");
+  }
+
+  componentDidUpdate() {
+    // if (document.getElementById("listOfCountryTiles")) {
+    //   console.log("exists2");
+    // }
+    // console.log("doesnt exist");
+  }
+
   handleClick() {
     const listOfCountryTiles = document.getElementById("listOfCountryTiles");
     const countryProfile = document.getElementById("countryProfile");
@@ -86,7 +100,7 @@ class BotTiles extends React.Component {
     // This takes you from the tiles of countries up to the main view with all continents (when you press the Back button)
     if (
       this.state.showBotTiles === false &&
-      listOfCountryTiles.style.display !== "none"
+      (listOfCountryTiles && listOfCountryTiles.style.display !== "none")
     ) {
       this.setState({ showBotTiles: true });
       window.location.href = "#/";
@@ -94,20 +108,22 @@ class BotTiles extends React.Component {
     // This takes you from the profile of the country you've selected up to the tiles of countries (when you press the Back button)
     if (
       this.state.showBotTiles === false &&
-      listOfCountryTiles.style.display === "none"
+      (listOfCountryTiles && listOfCountryTiles.style.display === "none")
     ) {
       countryProfile.style.display = "none";
       listOfCountryTiles.style.display = "";
-      var test = document.querySelector("#countryProfile h2").innerText;
+      var countryProfileTitle = document.querySelector("#countryProfile h2")
+        .innerText;
       const foundRoute = this.countries.find(element => {
-        if (element.name === test) {
-          return element.route;
+        if (element.name === countryProfileTitle) {
+          return element;
         }
         return null;
       });
-      console.log(foundRoute);
-
-      window.location.href = `#/${foundRoute.route}`;
+      window.location.href = `#/${foundRoute.continent}`;
+    }
+    if (this.state.showBotTiles === false && !listOfCountryTiles) {
+      this.setState({ showBotTiles: true });
     }
   }
 
@@ -128,8 +144,8 @@ class BotTiles extends React.Component {
 
     const countriesRouters = this.countries.map(country => (
       <Route
-        key={country.id}
-        path={country.route}
+        key={country.name}
+        path={country.continent}
         component={country.component}
       />
     ));

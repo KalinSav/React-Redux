@@ -27,7 +27,7 @@ class BotSearchBar extends React.Component {
   suggestionSelected(value) {
     this.props.onClick();
     const listOfCountryTiles = document.getElementById("listOfCountryTiles");
-    if (listOfCountryTiles.style.display !== "none") {
+    if (listOfCountryTiles && listOfCountryTiles.style.display !== "none") {
       listOfCountryTiles.style.display = "none";
     }
 
@@ -41,11 +41,11 @@ class BotSearchBar extends React.Component {
   findRoute(item) {
     const foundRoute = this.countries.find(element => {
       if (element.name === item) {
-        return element.route;
+        return element.continent;
       }
       return null;
     });
-    return foundRoute.route;
+    return foundRoute.continent;
   }
 
   renderSuggestions() {
@@ -58,8 +58,8 @@ class BotSearchBar extends React.Component {
       <HashRouter>
         <ul>
           {suggestions.map(item => (
-            <li>
-              <NavLink to={this.findRoute(item)}>
+            <li key={item}>
+              <NavLink to={`${this.findRoute(item)}/${item}`}>
                 <span onClick={() => this.suggestionSelected(item)}>
                   {item}
                 </span>
