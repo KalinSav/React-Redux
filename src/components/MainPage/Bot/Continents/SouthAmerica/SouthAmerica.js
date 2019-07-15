@@ -61,7 +61,7 @@ class SouthAmerica extends React.Component {
     ));
     return (
       <HashRouter>
-        <div id="listOfCountryTiles">
+        <div className="listOfCountryTiles">
           <CountryTile state={this.state} />
         </div>
         <div>{routers}</div>

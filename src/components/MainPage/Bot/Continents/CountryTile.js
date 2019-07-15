@@ -14,16 +14,17 @@ const methods = {
 };
 
 const betweenTileAndProfile = e => {
+  console.log("betweenTileAndProfile in CountryTile.js");
   // This makes sure you are taken to the relevant country profile when you click on its tile (if you've clicked Back button prior to it)
-  const listOfCountryTiles = document.getElementById("listOfCountryTiles");
-  const countryProfile = document.getElementById("countryProfile");
-  if (e.currentTarget.style.display !== "none") {
-    listOfCountryTiles.style.display = "none";
-    // This if statement is to remove an error caused by the yet-inexistatant countryProfile
-    if (countryProfile !== null) {
-      countryProfile.removeAttribute("style");
-    }
-  }
+  // const listOfCountryTiles = document.getElementById("listOfCountryTiles");
+  // const countryProfile = document.getElementById("countryProfile");
+  // if (e.currentTarget.style.display !== "none") {
+  //   listOfCountryTiles.style.display = "none";
+  //   // This if statement is to remove an error caused by the yet-inexistatant countryProfile
+  //   if (countryProfile !== null) {
+  //     countryProfile.removeAttribute("style");
+  //   }
+  // }
 };
 
 const CountryTile = props => {
@@ -42,17 +43,15 @@ const CountryTile = props => {
 
   const countryTilesList = alphabetisedCountryTiles.map(countryTile => {
     return (
-      <HashRouter key={countryTile.tileId}>
-        <NavLink to={countryTile.navLink}>
-          <div className="countryTile" onClick={e => betweenTileAndProfile(e)}>
-            <h2>{countryTile.tileTitle}</h2>
-            <img src={countryTile.tileImgSrc} alt={countryTile.tileAlt} />
-          </div>
-        </NavLink>
-      </HashRouter>
+      <NavLink to={countryTile.navLink} key={countryTile.tileId}>
+        <div className="countryTile" onClick={e => betweenTileAndProfile(e)}>
+          <h2>{countryTile.tileTitle}</h2>
+          <img src={countryTile.tileImgSrc} alt={countryTile.tileAlt} />
+        </div>
+      </NavLink>
     );
   });
-  return <div>{countryTilesList}</div>;
+  return <HashRouter>{countryTilesList}</HashRouter>;
 };
 
 export default lifecycle(methods)(CountryTile);

@@ -35,7 +35,6 @@ class BotSearchBar extends React.Component {
       text: value,
       suggestions: []
     }));
-    console.log("tt");
   }
 
   findRoute(item) {

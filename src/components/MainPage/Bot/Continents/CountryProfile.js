@@ -4,10 +4,18 @@ import lifecycle from "react-pure-lifecycle";
 
 const methods = {
   componentDidMount() {
+    console.log("componentDidMount in CountryProfile");
     // This runs when you've clicked on a country tile and the country profile mounts. It hides the country tiles.
-    const listOfCountryTiles = document.getElementById("listOfCountryTiles");
-    if (listOfCountryTiles.style.display !== "none") {
-      listOfCountryTiles.style.display = "none";
+    // const listOfCountryTiles = document.getElementById("listOfCountryTiles");
+    // if (listOfCountryTiles.style.display !== "none") {
+    //   listOfCountryTiles.style.display = "none";
+    // }
+  },
+
+  componentWillUnmount() {
+    // This is for when you click the browser BACK button when you are on a countryProfile screen. It makes the country tiles visible again
+    if (document.getElementById("listOfCountryTiles")) {
+      document.getElementById("listOfCountryTiles").removeAttribute("style");
     }
   }
 };
@@ -27,7 +35,7 @@ const CountryProfile = props => {
   ));
   return (
     <HashRouter>
-      <div id="countryProfile">
+      <div className="countryProfile">
         <div className="buttonsMenu">
           <h2>{props.state.countryName}</h2>
           <ul className="countryProfileMenu">{navLinks}</ul>

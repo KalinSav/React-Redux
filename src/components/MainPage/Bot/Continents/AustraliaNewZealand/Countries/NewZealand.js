@@ -5,7 +5,7 @@ class NewZealand extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      countryName: this.constructor.name,
+      countryName: "New Zealand",
       data: [
         {
           navLink: `${this.props.location.pathname}/keyFacts`,

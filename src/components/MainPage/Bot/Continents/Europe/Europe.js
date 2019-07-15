@@ -5,6 +5,12 @@ import Spain from "./Countries/Spain.js";
 import France from "./Countries/France.js";
 import Countries from "../Countries";
 
+const Lala = props => (
+  <div className="listOfCountryTiles">
+    <CountryTile state={props.state} />
+  </div>
+);
+
 class Europe extends React.Component {
   constructor(props) {
     super(props);
@@ -41,22 +47,10 @@ class Europe extends React.Component {
     // document.getElementsByClassName("botTiles")[1].style.visibility = "visible"
   }
 
-  componentDidUpdate() {
-    // This is for when you click the browser BACK button when you are on a countryProfile screen. It makes the country tiles visible again
-    const listOfCountryTiles = document.getElementById("listOfCountryTiles");
-    const countryProfileButton = document.querySelector(
-      "#countryProfile .countryProfileContent"
-    );
-    if (
-      listOfCountryTiles &&
-      (countryProfileButton && countryProfileButton.firstChild === false)
-    ) {
-      console.log("this (Europe)");
-      document.getElementById("listOfCountryTiles").removeAttribute("style");
-    }
-  }
+  componentDidUpdate() {}
 
   componentWillUnmount() {
+    console.log("test");
     // It is possible to make "botTile"s appear if there's a way to change the state showBotTiles to TRUE in BotTiles.js
     // console.log("unmounted")
     // document.getElementsByClassName("botTiles")[0].style.visibility = "visible"
@@ -90,10 +84,12 @@ class Europe extends React.Component {
     ));
     return (
       <HashRouter>
-        <div id="listOfCountryTiles">
-          <CountryTile state={this.state} />
-        </div>
-        <div>{routers}</div>
+        <Route
+          path="/Europe"
+          exact
+          render={() => <Lala state={this.state} />}
+        />
+        {routers}
       </HashRouter>
     );
   }

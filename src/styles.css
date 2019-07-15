@@ -178,7 +178,7 @@ a {
   max-height: 150px;
 }
 
-.countryTiles {
+.listOfCountryTiles {
   height: 533px;
   max-height: 80%;
   margin: 0 10%;
@@ -216,6 +216,10 @@ a {
 
 .buttonsMenu h2 {
   margin: 0;
+}
+
+.countryProfile {
+  background-color: red;
 }
 
 .countryProfileMenu {

@@ -1,6 +1,6 @@
 import React from "react";
 import BotTile from "./BotTile.js";
-import { Route, HashRouter } from "react-router-dom";
+import { Route, NavLink, HashRouter } from "react-router-dom";
 import BotSearchBar from "./BotSearchBar";
 import NorthAmerica from "./Continents/NorthAmerica/NorthAmerica.js";
 import Europe from "./Continents/Europe/Europe.js";
@@ -9,6 +9,28 @@ import SouthAmerica from "./Continents/SouthAmerica/SouthAmerica.js";
 import Africa from "./Continents/Africa/Africa.js";
 import AustraliaNewZealand from "./Continents/AustraliaNewZealand/AustraliaNewZealand.js";
 import Countries from "./Continents/Countries";
+import Spain from "./Continents/Europe/Countries/Spain";
+import BotTest from "./BotTest";
+
+const Home = props => {
+  const botTiles = props.state.botTiles.map(botTile => {
+    return (
+      <NavLink
+        to={botTile.navLink}
+        onClick={props.onClick}
+        key={botTile.tileId}
+      >
+        <div className="botTile">
+          <h2>{botTile.tileTitle}</h2>
+          <img src={botTile.tileImgSrc} alt={botTile.tileAlt} />
+        </div>
+      </NavLink>
+    );
+  });
+
+  return <HashRouter>{botTiles}</HashRouter>;
+};
+// const Home = (props) => <Navigations asd={props.text} />
 
 class BotTiles extends React.Component {
   constructor(props) {
@@ -112,7 +134,7 @@ class BotTiles extends React.Component {
     ) {
       countryProfile.style.display = "none";
       listOfCountryTiles.style.display = "";
-      var countryProfileTitle = document.querySelector("#countryProfile h2")
+      const countryProfileTitle = document.querySelector("#countryProfile h2")
         .innerText;
       const foundRoute = this.countries.find(element => {
         if (element.name === countryProfileTitle) {
@@ -120,8 +142,10 @@ class BotTiles extends React.Component {
         }
         return null;
       });
-      window.location.href = `#/${foundRoute.continent}`;
+      //    window.location.href = `#/${foundRoute.continent}`;
+      this.props.history.goBack();
     }
+    // When the Bot area is blank, this allows you to press the yellow Back button to be taken to the main screen
     if (this.state.showBotTiles === false && !listOfCountryTiles) {
       this.setState({ showBotTiles: true });
     }
@@ -142,14 +166,6 @@ class BotTiles extends React.Component {
       transition: "opacity 0.4s, height 0.3s ease-out"
     };
 
-    const countriesRouters = this.countries.map(country => (
-      <Route
-        key={country.name}
-        path={country.continent}
-        component={country.component}
-      />
-    ));
-
     const routers = this.state.botTiles.map(continent => (
       <Route
         key={continent.tileId}
@@ -160,15 +176,21 @@ class BotTiles extends React.Component {
 
     return (
       <HashRouter>
-        <section>
-          <div
+        <section className="botTiles">
+          <BotTest />
+          bb
+          <BotSearchBar
+            botTiles={this.state.botTiles}
+            onClick={() => this.handleClick()}
+          />
+          <Route path="/" exact render={() => <Home state={this.state} />} />
+          {routers}
+          <Route path="/Europe/Spain" component={Spain} />
+          {/* <div
             className="botTiles"
             style={this.state.showBotTiles ? visible : invisible}
           >
-            <BotSearchBar
-              botTiles={this.state.botTiles}
-              onClick={() => this.handleClick()}
-            />
+            
 
             <BotTile state={this.state} onClick={() => this.handleClick()} />
           </div>
@@ -179,11 +201,8 @@ class BotTiles extends React.Component {
             <button className="button" onClick={this.handleClick}>
               Back
             </button>
-            <div className="countryTiles">
-              {routers}
-              {countriesRouters}
-            </div>
-          </div>
+            <div className="countryTiles">{routers}</div>
+          </div> */}
         </section>
       </HashRouter>
     );

@@ -5,7 +5,7 @@ class IvoryCoast extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      countryName: this.constructor.name,
+      countryName: "Ivory Coast",
       data: [
         {
           navLink: `${this.props.location.pathname}/keyFacts`,
