@@ -1,20 +1,25 @@
 import React from "react";
 import { NavLink, HashRouter } from "react-router-dom";
+import BotSearchBar from "./BotSearchBar";
 
 const BotTile = props => {
-  const botTilesList = props.state.botTiles.map(botTile => {
+  const botTiles = props.state.botTiles.map(botTile => {
     return (
-      <HashRouter key={botTile.tileId}>
-        <NavLink to={botTile.navLink} onClick={props.onClick}>
-          <div className="botTile">
-            <h2>{botTile.tileTitle}</h2>
-            <img src={botTile.tileImgSrc} alt={botTile.tileAlt} />
-          </div>
-        </NavLink>
-      </HashRouter>
+      <NavLink to={botTile.navLink} key={botTile.tileId}>
+        <div className="botTile">
+          <h2>{botTile.tileTitle}</h2>
+          <img src={botTile.tileImgSrc} alt={botTile.tileAlt} />
+        </div>
+      </NavLink>
     );
   });
-  return <div>{botTilesList}</div>;
+
+  return (
+    <HashRouter>
+      <BotSearchBar botTiles={props.state.botTiles} />
+      {botTiles}
+    </HashRouter>
+  );
 };
 
 export default BotTile;

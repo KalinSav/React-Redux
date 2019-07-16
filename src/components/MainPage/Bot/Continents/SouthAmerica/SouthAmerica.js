@@ -16,7 +16,7 @@ class SouthAmerica extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/7/7b/Flag_of_Venezuela_%28state%29.svg",
           tileAlt: "Venezuela",
-          navLink: `${this.props.location.pathname}/Venezuela`,
+          navLink: "/SouthAmerica/Venezuela",
           component: Venezuela,
           tileId: 1
         },
@@ -25,7 +25,7 @@ class SouthAmerica extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg",
           tileAlt: "Colombia",
-          navLink: `${this.props.location.pathname}/Colombia`,
+          navLink: "/SouthAmerica/Colombia",
           component: Colombia,
           tileId: 2
         },
@@ -34,7 +34,7 @@ class SouthAmerica extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg",
           tileAlt: "Argentina",
-          navLink: `${this.props.location.pathname}/Argentina`,
+          navLink: "/SouthAmerica/Argentina",
           component: Argentina,
           tileId: 3
         },
@@ -61,10 +61,13 @@ class SouthAmerica extends React.Component {
     ));
     return (
       <HashRouter>
-        <div className="listOfCountryTiles">
-          <CountryTile state={this.state} />
-        </div>
-        <div>{routers}</div>
+        <h2>South America</h2>
+        <Route
+          path="/SouthAmerica"
+          exact
+          render={() => <CountryTile state={this.state} />}
+        />
+        {routers}
       </HashRouter>
     );
   }

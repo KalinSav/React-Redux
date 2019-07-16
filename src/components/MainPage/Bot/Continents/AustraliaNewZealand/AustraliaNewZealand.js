@@ -14,7 +14,7 @@ class AustraliaNewZealand extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg",
           tileAlt: "Australia",
-          navLink: `${this.props.location.pathname}/Australia`,
+          navLink: "/AustraliaNewZealand/Australia",
           component: Australia,
           tileId: 1
         },
@@ -23,7 +23,7 @@ class AustraliaNewZealand extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg",
           tileAlt: "New Zealand",
-          navLink: `${this.props.location.pathname}/NewZealand`,
+          navLink: "/AustraliaNewZealand/NewZealand",
           component: NewZealand,
           tileId: 2
         }
@@ -41,10 +41,12 @@ class AustraliaNewZealand extends React.Component {
     ));
     return (
       <HashRouter>
-        <div id="listOfCountryTiles">
-          <CountryTile state={this.state} />
-        </div>
-        <div>{routers}</div>
+        <Route
+          path="/AustraliaNewZealand"
+          exact
+          render={() => <CountryTile state={this.state} />}
+        />
+        {routers}
       </HashRouter>
     );
   }

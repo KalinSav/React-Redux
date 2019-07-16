@@ -5,12 +5,6 @@ import Spain from "./Countries/Spain.js";
 import France from "./Countries/France.js";
 import Countries from "../Countries";
 
-const Lala = props => (
-  <div className="listOfCountryTiles">
-    <CountryTile state={props.state} />
-  </div>
-);
-
 class Europe extends React.Component {
   constructor(props) {
     super(props);
@@ -84,10 +78,15 @@ class Europe extends React.Component {
     ));
     return (
       <HashRouter>
+        <button className="button" onClick={() => window.history.go(-1)}>
+          Back
+        </button>
+        <br />
+        <h2>Europe</h2>
         <Route
           path="/Europe"
           exact
-          render={() => <Lala state={this.state} />}
+          render={() => <CountryTile state={this.state} />}
         />
         {routers}
       </HashRouter>

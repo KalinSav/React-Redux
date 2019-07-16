@@ -3,7 +3,6 @@ import { Route, HashRouter } from "react-router-dom";
 import CountryTile from "../CountryTile.js";
 import Canada from "./Countries/Canada.js";
 import USA from "./Countries/USA.js";
-//import CountryTile from "../CountryTile.js";
 
 class NorthAmerica extends React.Component {
   constructor(props) {
@@ -15,7 +14,7 @@ class NorthAmerica extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg",
           tileAlt: "Canada",
-          navLink: `${this.props.location.pathname}/Canada`,
+          navLink: "/NorthAmerica/Canada",
           component: Canada,
           tileId: 1
         },
@@ -24,7 +23,7 @@ class NorthAmerica extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
           tileAlt: "USA",
-          navLink: `${this.props.location.pathname}/USA`,
+          navLink: "/NorthAmerica/USA",
           component: USA,
           tileId: 2
         }
@@ -42,10 +41,12 @@ class NorthAmerica extends React.Component {
     ));
     return (
       <HashRouter>
-        <div id="listOfCountryTiles">
-          <CountryTile state={this.state} />
-        </div>
-        <div>{routers}</div>
+        <Route
+          path="/NorthAmerica"
+          exact
+          render={() => <CountryTile state={this.state} />}
+        />
+        {routers}
       </HashRouter>
     );
   }

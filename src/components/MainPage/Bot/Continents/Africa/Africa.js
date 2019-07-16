@@ -39,11 +39,6 @@ class Africa extends React.Component {
         }
       ]
     };
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    document.getElementById("countryTile").style.display = "none";
   }
 
   render() {
@@ -56,9 +51,12 @@ class Africa extends React.Component {
     ));
     return (
       <HashRouter>
-        <div className="listOfCountryTiles">
-          <CountryTile state={this.state} onClick={this.handleClick} />
-        </div>
+        <h2>Africa</h2>
+        <Route
+          path="/Africa"
+          exact
+          render={() => <CountryTile state={this.state} />}
+        />
         {routers}
       </HashRouter>
     );

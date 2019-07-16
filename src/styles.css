@@ -7,6 +7,10 @@ a {
   color: black;
 }
 
+button:focus {
+  outline: 0;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -131,12 +135,10 @@ a {
 }
 
 .botTiles {
-  height: 600px;
-  padding: 5% 0;
-}
-
-.botTiles button {
-  margin-bottom: 70px;
+  max-height: 700px;
+  height: 700px;
+  margin: 5% 0;
+  overflow-y: scroll;
 }
 
 .botTiles button:hover {
@@ -179,6 +181,7 @@ a {
 }
 
 .listOfCountryTiles {
+  /* UNUSED */
   height: 533px;
   max-height: 80%;
   margin: 0 10%;
@@ -187,9 +190,9 @@ a {
 
 .countryTile {
   display: inline-block;
-  height: 170px;
+  height: 160px;
   margin: 30px 20px;
-  padding: 2%;
+  padding: 1%;
   max-width: 140px;
   border-radius: 10px;
   -webkit-box-shadow: 1px 16px 40px -13px rgba(0, 0, 0, 0.45);
@@ -220,6 +223,7 @@ a {
 
 .countryProfile {
   background-color: red;
+  margin: 0 10%;
 }
 
 .countryProfileMenu {

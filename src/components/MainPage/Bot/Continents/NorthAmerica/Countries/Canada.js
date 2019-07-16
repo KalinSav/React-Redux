@@ -60,11 +60,7 @@ class Canada extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <CountryProfile state={this.state} />
-      </div>
-    );
+    return <CountryProfile state={this.state} />;
   }
 }
 

@@ -25,12 +25,6 @@ class BotSearchBar extends React.Component {
   };
 
   suggestionSelected(value) {
-    this.props.onClick();
-    const listOfCountryTiles = document.getElementById("listOfCountryTiles");
-    if (listOfCountryTiles && listOfCountryTiles.style.display !== "none") {
-      listOfCountryTiles.style.display = "none";
-    }
-
     this.setState(() => ({
       text: value,
       suggestions: []

@@ -15,7 +15,7 @@ class AsiaMiddleEast extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg",
           tileAlt: "China",
-          navLink: `${this.props.location.pathname}/China`,
+          navLink: "/AsiaMiddleEast/China",
           component: China,
           tileId: 1
         },
@@ -24,7 +24,7 @@ class AsiaMiddleEast extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg",
           tileAlt: "Indonesia",
-          navLink: `${this.props.location.pathname}/Indonesia`,
+          navLink: "/AsiaMiddleEast/Indonesia",
           component: Indonesia,
           tileId: 2
         },
@@ -33,7 +33,7 @@ class AsiaMiddleEast extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Jordan.svg",
           tileAlt: "Jordan",
-          navLink: `${this.props.location.pathname}/Jordan`,
+          navLink: "/AsiaMiddleEast/Jordan",
           component: Jordan,
           tileId: 3
         }
@@ -51,10 +51,12 @@ class AsiaMiddleEast extends React.Component {
     ));
     return (
       <HashRouter>
-        <div id="listOfCountryTiles">
-          <CountryTile state={this.state} />
-        </div>
-        <div>{routers}</div>
+        <Route
+          path="/AsiaMiddleEast"
+          exact
+          render={() => <CountryTile state={this.state} />}
+        />
+        {routers}
       </HashRouter>
     );
   }
