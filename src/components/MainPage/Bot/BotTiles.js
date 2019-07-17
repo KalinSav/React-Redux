@@ -1,5 +1,6 @@
 import React from "react";
-import { Route, HashRouter } from "react-router-dom";
+import { Route, HashRouter, Switch } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import BotTile from "./BotTile.js";
 import NorthAmerica from "./Continents/NorthAmerica/NorthAmerica.js";
 import Europe from "./Continents/Europe/Europe.js";
@@ -14,7 +15,6 @@ class BotTiles extends React.Component {
     super(props);
     this.countries = Countries;
     this.state = {
-      showBotTiles: true,
       botTiles: [
         {
           tileTitle: "North America",
@@ -86,8 +86,17 @@ class BotTiles extends React.Component {
     return (
       <HashRouter>
         <section className="botTiles">
-          <Route path="/" exact render={() => <BotTile state={this.state} />} />
-          {routes}
+          {/* <Route path="/" exact render={() => <BotTile state={this.state} />} /> */}
+
+          <Route
+            render={() => (
+              <TransitionGroup>
+                <CSSTransition timeout={300} classNames="fade">
+                  <Switch>{routes}</Switch>
+                </CSSTransition>
+              </TransitionGroup>
+            )}
+          />
         </section>
       </HashRouter>
     );

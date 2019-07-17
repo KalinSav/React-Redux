@@ -23,6 +23,10 @@ const CountryProfile = props => {
         </div>
         <div className="countryProfileContent">{routers}</div>
       </div>
+      <br />
+      <button className="button" onClick={() => window.history.go(-1)}>
+        Back
+      </button>
     </HashRouter>
   );
 };

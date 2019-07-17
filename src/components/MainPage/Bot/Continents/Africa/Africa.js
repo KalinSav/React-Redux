@@ -9,6 +9,7 @@ class Africa extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      continent: "Africa",
       countryTiles: [
         {
           tileTitle: "Ghana",
@@ -51,7 +52,6 @@ class Africa extends React.Component {
     ));
     return (
       <HashRouter>
-        <h2>Africa</h2>
         <Route
           path="/Africa"
           exact

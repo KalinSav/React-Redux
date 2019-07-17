@@ -10,6 +10,7 @@ class Europe extends React.Component {
     super(props);
     this.countries = Countries;
     this.state = {
+      continent: "Europe",
       countryTiles: [
         {
           tileTitle: "Spain",
@@ -78,11 +79,6 @@ class Europe extends React.Component {
     ));
     return (
       <HashRouter>
-        <button className="button" onClick={() => window.history.go(-1)}>
-          Back
-        </button>
-        <br />
-        <h2>Europe</h2>
         <Route
           path="/Europe"
           exact

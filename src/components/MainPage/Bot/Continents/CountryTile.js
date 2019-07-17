@@ -40,7 +40,17 @@ const CountryTile = props => {
     );
   });
 
-  return <HashRouter>{countryTilesList}</HashRouter>;
+  return (
+    <HashRouter>
+      <h2>{props.state.continent}</h2>
+      <br />
+      {countryTilesList}
+      <br />
+      <button className="button" onClick={() => window.history.go(-1)}>
+        Back
+      </button>
+    </HashRouter>
+  );
 };
 
 export default lifecycle(methods)(CountryTile);

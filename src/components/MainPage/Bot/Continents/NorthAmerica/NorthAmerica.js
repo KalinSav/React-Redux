@@ -8,6 +8,7 @@ class NorthAmerica extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      continent: "North America",
       countryTiles: [
         {
           tileTitle: "Canada",

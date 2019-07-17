@@ -8,6 +8,7 @@ class AustraliaNewZealand extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      continent: "Australia and New Zealand",
       countryTiles: [
         {
           tileTitle: "Australia",

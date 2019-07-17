@@ -134,6 +134,14 @@ button:focus {
   transform: scale(1.1);
 }
 
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
 .botTiles {
   max-height: 700px;
   height: 700px;
@@ -219,6 +227,7 @@ button:focus {
 
 .buttonsMenu h2 {
   margin: 0;
+  padding: 20px;
 }
 
 .countryProfile {

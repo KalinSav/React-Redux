@@ -9,6 +9,7 @@ class AsiaMiddleEast extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      continent: "Asia and Middle East",
       countryTiles: [
         {
           tileTitle: "China",
