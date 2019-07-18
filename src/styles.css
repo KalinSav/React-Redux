@@ -134,15 +134,45 @@ button:focus {
   transform: scale(1.1);
 }
 
-.fade-enter {
+.pepe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: blue;
+}
+
+/* .fade-enter {
   opacity: 0;
 }
 
 .fade-enter.fade-enter-active {
   opacity: 1;
   transition: opacity 300ms ease-in;
+} */
+
+.fade-appear,
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
 }
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms linear 150ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms linear;
+}
+
 .botTiles {
+  position: relative;
   max-height: 700px;
   height: 700px;
   margin: 5% 0;

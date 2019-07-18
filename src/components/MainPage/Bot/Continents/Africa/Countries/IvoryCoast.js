@@ -8,7 +8,7 @@ class IvoryCoast extends React.Component {
       countryName: "Ivory Coast",
       data: [
         {
-          navLink: `${this.props.location.pathname}/keyFacts`,
+          navLink: "/Africa/IvoryCoast/keyFacts",
           title: "Key Facts",
           tileId: 1,
           content: () => (
@@ -25,7 +25,7 @@ class IvoryCoast extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/overview`,
+          navLink: "/Africa/IvoryCoast/overview",
           title: "Overview",
           tileId: 2,
           content: () => (
@@ -89,7 +89,7 @@ class IvoryCoast extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/tips`,
+          navLink: "/Africa/IvoryCoast/tips",
           title: "Tips",
           tileId: 3,
           content: () => (
@@ -127,7 +127,7 @@ class IvoryCoast extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/teachingStyle`,
+          navLink: "/Africa/IvoryCoast/teachingStyle",
           title: "Teaching Style",
           tileId: 4,
           content: () => (
@@ -218,7 +218,7 @@ class IvoryCoast extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/assignments`,
+          navLink: "/Africa/IvoryCoast/assignments",
           title: "Assignments",
           tileId: 5,
           content: () => (
@@ -248,7 +248,7 @@ class IvoryCoast extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/plagiarism`,
+          navLink: "/Africa/IvoryCoast/plagiarism",
           title: "Plagiarism",
           tileId: 6,
           content: () => (
@@ -264,7 +264,7 @@ class IvoryCoast extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/digitalTechnology`,
+          navLink: "/Africa/IvoryCoast/digitalTechnology",
           title: "Digital Technology",
           tileId: 7,
           content: () => (
@@ -298,7 +298,7 @@ class IvoryCoast extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/regionalVariations`,
+          navLink: "/Africa/IvoryCoast/regionalVariations",
           title: "Regional Variations",
           tileId: 8,
           content: () => (

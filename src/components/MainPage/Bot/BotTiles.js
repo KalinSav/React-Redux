@@ -86,13 +86,17 @@ class BotTiles extends React.Component {
     return (
       <HashRouter>
         <section className="botTiles">
-          {/* <Route path="/" exact render={() => <BotTile state={this.state} />} /> */}
+          <Route path="/" exact render={() => <BotTile state={this.state} />} />
 
           <Route
-            render={() => (
+            render={({ location }) => (
               <TransitionGroup>
-                <CSSTransition timeout={300} classNames="fade">
-                  <Switch>{routes}</Switch>
+                <CSSTransition
+                  key={location.pathname}
+                  timeout={450}
+                  classNames="pepe fade"
+                >
+                  <Switch location={location}>{routes}</Switch>
                 </CSSTransition>
               </TransitionGroup>
             )}

@@ -1,5 +1,4 @@
 import React from "react";
-//import UserForm from "./components/Form/UserForm.js";
 import "./styles.css";
 import Top from "./components/MainPage/Top/Top.js";
 import Mid from "./components/MainPage/Mid/Mid.js";

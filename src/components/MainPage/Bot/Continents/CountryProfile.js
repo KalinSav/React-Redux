@@ -22,11 +22,11 @@ const CountryProfile = props => {
           <ul className="countryProfileMenu">{navLinks}</ul>
         </div>
         <div className="countryProfileContent">{routers}</div>
+        <br />
+        <button className="button" onClick={() => window.history.go(-1)}>
+          Back
+        </button>
       </div>
-      <br />
-      <button className="button" onClick={() => window.history.go(-1)}>
-        Back
-      </button>
     </HashRouter>
   );
 };
