@@ -24,6 +24,14 @@ class BotSearchBar extends React.Component {
     this.setState(() => ({ suggestions, text: value }));
   };
 
+  ttt() {
+    console.log("fff");
+    this.setState(() => ({
+      text: "",
+      suggestions: []
+    }));
+    console.log("fffaaa");
+  }
   suggestionSelected(value) {
     this.setState(() => ({
       text: value,
@@ -49,7 +57,7 @@ class BotSearchBar extends React.Component {
 
     return (
       <HashRouter>
-        <ul>
+        <ul class="ulTest">
           {suggestions.map(item => (
             <li key={item}>
               <NavLink to={`${this.findRoute(item)}/${item}`}>
@@ -68,7 +76,18 @@ class BotSearchBar extends React.Component {
     const { text } = this.state;
     return (
       <div>
-        <input value={text} onChange={this.onTextChange} type="text" />
+        <input
+          type="text"
+          className="inputBox"
+          placeholder="Search country..."
+          value={text}
+          onChange={this.onTextChange}
+          onClick={e => {
+            if (e.target.type !== "text") {
+              console.log(e.target.type);
+            }
+          }}
+        />
         {this.renderSuggestions()}
       </div>
     );

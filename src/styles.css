@@ -29,7 +29,7 @@ button:focus {
 }
 
 .mainPage {
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat, Arial, sans-serif;
   text-align: center;
   margin: -8px;
 }
@@ -134,22 +134,12 @@ button:focus {
   transform: scale(1.1);
 }
 
-.pepe {
+.positionAbsolute {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  color: blue;
 }
-
-/* .fade-enter {
-  opacity: 0;
-}
-
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 300ms ease-in;
-} */
 
 .fade-appear,
 .fade-enter {
@@ -159,7 +149,7 @@ button:focus {
 .fade-appear-active,
 .fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity 300ms linear 150ms;
+  transition: opacity 200ms ease-in 100ms;
 }
 
 .fade-exit {
@@ -168,7 +158,7 @@ button:focus {
 
 .fade-exit.fade-exit-active {
   opacity: 0;
-  transition: opacity 300ms linear;
+  transition: opacity 200ms ease-in;
 }
 
 .botTiles {
@@ -218,12 +208,33 @@ button:focus {
   max-height: 150px;
 }
 
-.listOfCountryTiles {
-  /* UNUSED */
-  height: 533px;
-  max-height: 80%;
-  margin: 0 10%;
-  overflow-y: scroll;
+.searchBar {
+  border-color: #11a4c9;
+  border-radius: 5px;
+  width: 200px;
+  height: 20px;
+  outline: none;
+}
+
+.ulTest {
+  background-color: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  list-style-type: none;
+  line-height: 2em;
+  padding: 1% 0;
+  text-decoration: none;
+  position: absolute;
+  width: 200px;
+  margin-top: 0;
+  margin-left: -100px;
+  left: 50%;
+  color: red;
+  z-index: 2;
+  -webkit-box-shadow: 1px 16px 40px -13px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 1px 16px 40px -13px rgba(0, 0, 0, 0.45);
+  box-shadow: 1px 16px 40px -13px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s;
 }
 
 .countryTile {
@@ -261,7 +272,6 @@ button:focus {
 }
 
 .countryProfile {
-  background-color: red;
   margin: 0 10%;
 }
 
@@ -339,7 +349,7 @@ button:focus {
 }
 
 .inputBox {
-  font-family: Montserrat;
+  font-family: Montserrat, Arial, sans-serif;
   padding: 0.5em;
   font-size: 1em;
   line-height: 2em;

@@ -8,7 +8,7 @@ class Nigeria extends React.Component {
       countryName: this.constructor.name,
       data: [
         {
-          navLink: `${this.props.location.pathname}/keyFacts`,
+          navLink: "/Africa/Nigeria/keyFacts",
           title: "Key Facts",
           tileId: 1,
           content: () => (
@@ -22,7 +22,7 @@ class Nigeria extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/overview`,
+          navLink: "/Africa/Nigeria/overview",
           title: "Overview",
           tileId: 2,
           content: () => (
@@ -89,7 +89,7 @@ class Nigeria extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/tips`,
+          navLink: "/Africa/Nigeria/tips",
           title: "Tips",
           tileId: 3,
           content: () => (
@@ -120,7 +120,7 @@ class Nigeria extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/teachingStyle`,
+          navLink: "/Africa/Nigeria/teachingStyle",
           title: "Teaching Style",
           tileId: 4,
           content: () => (
@@ -188,7 +188,7 @@ class Nigeria extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/assignments`,
+          navLink: "/Africa/Nigeria/assignments",
           title: "Assignments",
           tileId: 5,
           content: () => (
@@ -220,7 +220,7 @@ class Nigeria extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/plagiarism`,
+          navLink: "/Africa/Nigeria/plagiarism",
           title: "Plagiarism",
           tileId: 6,
           content: () => (
@@ -234,7 +234,7 @@ class Nigeria extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/digitalTechnology`,
+          navLink: "/Africa/Nigeria/digitalTechnology",
           title: "Digital Technology",
           tileId: 7,
           content: () => (
@@ -255,7 +255,7 @@ class Nigeria extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/regionalVariations`,
+          navLink: "/Africa/Nigeria/regionalVariations",
           title: "Regional Variations",
           tileId: 8,
           content: () => (

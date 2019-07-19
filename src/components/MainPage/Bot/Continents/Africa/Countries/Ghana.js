@@ -8,7 +8,7 @@ class Ghana extends React.Component {
       countryName: this.constructor.name,
       data: [
         {
-          navLink: `${this.props.location.pathname}/keyFacts`,
+          navLink: "/Africa/Ghana/keyFacts",
           title: "Key Facts",
           tileId: 1,
           content: () => (
@@ -22,7 +22,7 @@ class Ghana extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/overview`,
+          navLink: "/Africa/Ghana/overview",
           title: "Overview",
           tileId: 2,
           content: () => (
@@ -69,7 +69,7 @@ class Ghana extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/tips`,
+          navLink: "/Africa/Ghana/tips",
           title: "Tips",
           tileId: 3,
           content: () => (
@@ -105,7 +105,7 @@ class Ghana extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/teachingStyle`,
+          navLink: "/Africa/Ghana/teachingStyle",
           title: "Teaching Style",
           tileId: 4,
           content: () => (
@@ -153,7 +153,7 @@ class Ghana extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/assignments`,
+          navLink: "/Africa/Ghana/assignments",
           title: "Assignments",
           tileId: 5,
           content: () => (
@@ -166,7 +166,7 @@ class Ghana extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/plagiarism`,
+          navLink: "/Africa/Ghana/plagiarism",
           title: "Plagiarism",
           tileId: 6,
           content: () => (
@@ -183,7 +183,7 @@ class Ghana extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/digitalTechnology`,
+          navLink: "/Africa/Ghana/digitalTechnology",
           title: "Digital Technology",
           tileId: 7,
           content: () => (
@@ -207,7 +207,7 @@ class Ghana extends React.Component {
           )
         },
         {
-          navLink: `${this.props.location.pathname}/regionalVariations`,
+          navLink: "/Africa/Ghana/regionalVariations",
           title: "Regional Variations",
           tileId: 8,
           content: () => (
