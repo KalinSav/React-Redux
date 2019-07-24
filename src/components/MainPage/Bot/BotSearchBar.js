@@ -22,16 +22,11 @@ class BotSearchBar extends React.Component {
       suggestions = countryNames.sort().filter(v => regex.test(v));
     }
     this.setState(() => ({ suggestions, text: value }));
+    if (document.querySelector(".searchSuggestions")) {
+      document.querySelector(".searchSuggestions").style.visibility = "visible";
+    }
   };
 
-  ttt() {
-    console.log("fff");
-    this.setState(() => ({
-      text: "",
-      suggestions: []
-    }));
-    console.log("fffaaa");
-  }
   suggestionSelected(value) {
     this.setState(() => ({
       text: value,
@@ -57,7 +52,7 @@ class BotSearchBar extends React.Component {
 
     return (
       <HashRouter>
-        <ul class="ulTest">
+        <ul className="searchSuggestions">
           {suggestions.map(item => (
             <li key={item}>
               <NavLink to={`${this.findRoute(item)}/${item}`}>
@@ -82,11 +77,6 @@ class BotSearchBar extends React.Component {
           placeholder="Search country..."
           value={text}
           onChange={this.onTextChange}
-          onClick={e => {
-            if (e.target.type !== "text") {
-              console.log(e.target.type);
-            }
-          }}
         />
         {this.renderSuggestions()}
       </div>

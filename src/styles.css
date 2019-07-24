@@ -70,8 +70,53 @@ button:focus {
   vertical-align: middle;
 }
 
+.signInButton {
+  color: rgba(0, 0, 0, 0.5);
+  float: right;
+  margin: 1em;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.signInButton:hover {
+  color: black;
+}
+
+.signInWrapper {
+  width: 80%;
+  height: 500px;
+  position: absolute;
+  overflow: hidden;
+
+  right: 10%;
+}
+
+.signIn {
+  color: #444040;
+  position: absolute;
+  right: -50%;
+  opacity: 0;
+  -webkit-transition: all 400ms ease-in-out;
+  -moz-transition: all 400ms ease-in-out;
+  -o-transition: all 400ms ease-in-out;
+  transition: all 400ms ease-in-out;
+}
+
+.signIn.transition {
+  right: 0px;
+  opacity: 1;
+}
+
+.loginField {
+  margin: 1em;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #444040;
+  outline: none;
+}
+
 .topText {
-  font-family: Calibri, sans-serif;
+  font-family: Calibri, Arial, sans-serif;
   font-size: 1.3em;
   padding: 5% 10%;
   text-align: left;
@@ -216,7 +261,7 @@ button:focus {
   outline: none;
 }
 
-.ulTest {
+.searchSuggestions {
   background-color: white;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -235,6 +280,11 @@ button:focus {
   -moz-box-shadow: 1px 16px 40px -13px rgba(0, 0, 0, 0.45);
   box-shadow: 1px 16px 40px -13px rgba(0, 0, 0, 0.45);
   transition: transform 0.2s;
+}
+
+.searchSuggestions li:hover {
+  border-radius: 3px;
+  background-color: #7be5ff;
 }
 
 .countryTile {
@@ -355,7 +405,6 @@ button:focus {
   line-height: 2em;
   border: 1px solid white;
   text-align: center;
-  margin-top: 2em;
   resize: none;
   transition: box-shadow 0.4s;
   border-bottom: 1px solid #656d6e;
