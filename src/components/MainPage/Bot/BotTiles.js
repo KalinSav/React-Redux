@@ -93,7 +93,7 @@ class BotTiles extends React.Component {
                 <CSSTransition
                   key={location.pathname}
                   timeout={300}
-                  classNames="positionAbsolute fade"
+                  classNames="fade"
                   exit={false}
                 >
                   <Switch location={location}>{routes}</Switch>

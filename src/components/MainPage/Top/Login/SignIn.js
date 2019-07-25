@@ -47,7 +47,7 @@ class SignIn extends React.Component {
               />
             </div>
           </div>
-          <p class="signInButton" onMouseEnter={() => this.toggleClass()}>
+          <p className="signInButton" onMouseEnter={() => this.toggleClass()}>
             Sign In
           </p>
         </form>

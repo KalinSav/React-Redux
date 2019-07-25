@@ -29,13 +29,13 @@ button:focus {
 }
 
 .mainPage {
-  font-family: Montserrat, Arial, sans-serif;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
   text-align: center;
   margin: -8px;
 }
 
 .button {
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
   display: inline-block;
   border: none;
   background-color: #fdc010;
@@ -46,6 +46,11 @@ button:focus {
   -webkit-box-shadow: 1px 10px 40px -13px rgba(0, 0, 0, 0.45);
   -moz-box-shadow: 1px 10px 40px -13px rgba(0, 0, 0, 0.45);
   box-shadow: 1px 10px 40px -13px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s;
+}
+
+.button:hover {
+  transform: scale(1.1);
 }
 
 .topBannerImage {
@@ -54,7 +59,7 @@ button:focus {
   width: 100%;
   height: 500px;
   position: absolute;
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .topBanner {
@@ -74,12 +79,16 @@ button:focus {
   color: rgba(0, 0, 0, 0.5);
   float: right;
   margin: 1em;
-  z-index: 999;
   cursor: pointer;
 }
 
 .signInButton:hover {
   color: black;
+}
+
+.signUpButton {
+  color: red;
+  float: right;
 }
 
 .signInWrapper {
@@ -88,7 +97,7 @@ button:focus {
   position: absolute;
   overflow: hidden;
 
-  right: 10%;
+  /* right: 10%; */
 }
 
 .signIn {
@@ -113,6 +122,46 @@ button:focus {
   border: none;
   border-bottom: 1px solid #444040;
   outline: none;
+}
+
+.signUpModal {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  z-index: 999;
+}
+
+.modalContent {
+  background-color: white;
+  min-height: 40%;
+  margin: 10% auto;
+  padding: 20px;
+  width: 70%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+}
+
+.closeBtn {
+  color: #ccc;
+  top: 0;
+  float: right;
+  font-size: 30px;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.inputField {
+  text-align: left;
+  padding: 5px 40%;
 }
 
 .topText {
@@ -144,7 +193,6 @@ button:focus {
 
 .midTile {
   display: inline-block;
-  position: relative;
   background-color: #12aad1;
   padding-top: 10px;
   margin: 15% 20px;
@@ -164,19 +212,6 @@ button:focus {
   -moz-box-shadow: 1px 22x 40px -5px rgba(0, 0, 0, 0.45);
   box-shadow: 1px 22px 40px -5px rgba(0, 0, 0, 0.45);
   background-color: #11a4c9;
-}
-
-.midTile button {
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-  width: 140px;
-  margin-left: -70px;
-  transition: transform 0.2s;
-}
-
-.midTile button:hover {
-  transform: scale(1.1);
 }
 
 .positionAbsolute {
@@ -207,7 +242,6 @@ button:focus {
 }
 
 .botTiles {
-  position: relative;
   max-height: 700px;
   height: 700px;
   margin: 5% 0;

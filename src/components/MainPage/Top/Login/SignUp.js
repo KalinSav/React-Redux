@@ -26,26 +26,44 @@ class SignUp extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <p>Sign Up</p>
-          <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={this.handleChange} />
+          <div className="signUpModal">
+            <div className="modalContent">
+              <span className="closeBtn">&times;</span>
+              <h3>Sign Up</h3>
+              <div className="inputField">
+                <label htmlFor="firstName">First Name</label>
+                <br />
+                <input
+                  type="text"
+                  id="firstName"
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="inputField">
+                <label htmlFor="lastName">Last Name</label>
+                <br />
+                <input type="text" id="lastName" onChange={this.handleChange} />
+              </div>
+              <div className="inputField">
+                <label htmlFor="email">Email</label>
+                <br />
+                <input type="email" id="email" onChange={this.handleChange} />
+              </div>
+              <div className="inputField">
+                <label htmlFor="password">Password</label>
+                <br />
+                <input
+                  type="password"
+                  id="password"
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="inputField">
+                <button className="button">Sign Up</button>
+              </div>
+            </div>
           </div>
-          <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <label htmlFor="firstName">First Name</label>
-            <input type="text" id="firstName" onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <label htmlFor="lastName">Last Name</label>
-            <input type="text" id="lastName" onChange={this.handleChange} />
-          </div>
-          <div className="inputField">
-            <button className="">Login</button>
-          </div>
+          <p className="signUpButton ">Sign Up</p>
         </form>
       </div>
     );

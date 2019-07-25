@@ -8,7 +8,7 @@ class TopBanner extends React.Component {
       <header>
         <div className="topBannerImage" />
         <div className="topBanner">
-          <SignIn />
+          {/* <SignIn /> */}
           {/* <SignUp /> */}
           <h1>International Students</h1>
           <h2>Online Learning Resource</h2>
