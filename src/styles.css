@@ -59,13 +59,14 @@ button:focus {
   width: 100%;
   height: 500px;
   position: absolute;
+
   /* z-index: -1; */
 }
 
 .topBanner {
   background-color: #fdc010;
-  opacity: 0.8;
   height: 500px;
+  opacity: 0.8;
 }
 
 .topBanner h1 {
@@ -78,7 +79,7 @@ button:focus {
 .signInButton {
   color: rgba(0, 0, 0, 0.5);
   float: right;
-  margin: 1em;
+  margin: 20px 10px;
   cursor: pointer;
 }
 
@@ -89,6 +90,7 @@ button:focus {
 .signUpButton {
   color: red;
   float: right;
+  margin: 5px;
 }
 
 .signInWrapper {
@@ -133,7 +135,7 @@ button:focus {
   height: 100%;
   width: 100%;
   overflow: auto;
-  z-index: 999;
+  z-index: 1;
 }
 
 .modalContent {
@@ -309,7 +311,7 @@ button:focus {
   margin-left: -100px;
   left: 50%;
   color: red;
-  z-index: 2;
+  z-index: 1;
   -webkit-box-shadow: 1px 16px 40px -13px rgba(0, 0, 0, 0.45);
   -moz-box-shadow: 1px 16px 40px -13px rgba(0, 0, 0, 0.45);
   box-shadow: 1px 16px 40px -13px rgba(0, 0, 0, 0.45);
