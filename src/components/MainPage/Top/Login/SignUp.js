@@ -21,14 +21,25 @@ class SignUp extends React.Component {
     e.preventDefault();
     console.log(this.state);
   };
+  toggleModal = () => {
+    const modal = document.getElementById("modal");
+    if (!modal.style.display) {
+      modal.style.display = "block";
+    } else if (modal.style.display === "block") {
+      modal.removeAttribute("style");
+    }
+    console.log(modal.style);
+  };
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <div className="signUpModal">
+          <div className="signUpModal" id="modal">
             <div className="modalContent">
-              <span className="closeBtn">&times;</span>
+              <span className="closeBtn" onClick={this.toggleModal}>
+                &times;
+              </span>
               <h3>Sign Up</h3>
               <div className="inputField">
                 <label htmlFor="firstName">First Name</label>
@@ -58,13 +69,13 @@ class SignUp extends React.Component {
                   onChange={this.handleChange}
                 />
               </div>
-              <div className="inputField">
-                <button className="button">Sign Up</button>
-              </div>
+              <button className="button">Sign Up</button>
             </div>
           </div>
           <p className="signUpButton ">
-            <button className="button">Sign Up</button>
+            <button className="button" onClick={this.toggleModal}>
+              Sign Up
+            </button>
           </p>
         </form>
       </div>

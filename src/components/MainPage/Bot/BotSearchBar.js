@@ -5,7 +5,6 @@ import Countries from "./Continents/Countries";
 class BotSearchBar extends React.Component {
   constructor(props) {
     super(props);
-
     this.countries = Countries;
     this.state = {
       suggestions: [],
@@ -37,11 +36,11 @@ class BotSearchBar extends React.Component {
   findRoute(item) {
     const foundRoute = this.countries.find(element => {
       if (element.name === item) {
-        return element.continent;
+        return element.url;
       }
       return null;
     });
-    return foundRoute.continent;
+    return foundRoute.url;
   }
 
   renderSuggestions() {
@@ -55,7 +54,7 @@ class BotSearchBar extends React.Component {
         <ul className="searchSuggestions">
           {suggestions.map(item => (
             <li key={item}>
-              <NavLink to={`${this.findRoute(item)}/${item}`}>
+              <NavLink to={this.findRoute(item)}>
                 <span onClick={() => this.suggestionSelected(item)}>
                   {item}
                 </span>

@@ -23,9 +23,6 @@ const CountryProfile = props => {
           <h2>{props.state.countryName}</h2>
           <ul className="countryProfileMenu">{navLinks}</ul>
         </div>
-        <span style={{ fontStyle: "italic", fontSize: "0.75em" }}>
-          Please select a category
-        </span>
         <div className="countryProfileContent">{routers}</div>
         <br />
         <button className="button" onClick={() => window.history.go(-1)}>

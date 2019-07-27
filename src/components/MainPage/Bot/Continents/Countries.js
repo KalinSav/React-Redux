@@ -19,82 +19,82 @@ const Countries = [
   {
     name: "Ghana",
     component: Ghana,
-    continent: "Africa"
+    url: "Africa/Ghana"
   },
   {
     name: "Nigeria",
     component: Nigeria,
-    continent: "Africa"
+    url: "Africa/Nigeria"
   },
   {
     name: "Ivory Coast",
     component: IvoryCoast,
-    continent: "Africa"
+    url: "Africa/IvoryCoast"
   },
   {
     name: "Spain",
     component: Spain,
-    continent: "Europe"
+    url: "Europe/Spain"
   },
   {
     name: "France",
     component: France,
-    continent: "Europe"
+    url: "Europe/France"
   },
   {
     name: "Canada",
     component: Canada,
-    continent: "NorthAmerica"
+    url: "NorthAmerica/Canada"
   },
   {
     name: "USA",
     component: USA,
-    continent: "NorthAmerica"
+    url: "NorthAmerica/USA"
   },
   {
     name: "China",
     component: China,
-    continent: "AsiaMiddleEast"
+    url: "AsiaMiddleEast/China"
   },
   {
     name: "Indonesia",
     component: Indonesia,
-    continent: "AsiaMiddleEast"
+    url: "AsiaMiddleEast/Indonesia"
   },
   {
     name: "Jordan",
     component: Jordan,
-    continent: "AsiaMiddleEast"
+    url: "AsiaMiddleEast/Jordan"
   },
   {
     name: "Argentina",
     component: Argentina,
-    continent: "SouthAmerica"
+    url: "SouthAmerica/Argentina"
   },
   {
     name: "Brazil",
     component: Brazil,
-    continent: "SouthAmerica"
+    url: "SouthAmerica/Brazil"
   },
   {
     name: "Colombia",
     component: Colombia,
-    continent: "SouthAmerica"
+    url: "SouthAmerica/Colombia"
   },
   {
     name: "Venezuela",
     component: Venezuela,
-    continent: "SouthAmerica"
+    url: "SouthAmerica/Venezuela"
   },
   {
     name: "Australia",
     component: Australia,
-    continent: "AustraliaNewZealand"
+    url: "AustraliaNewZealand/Australia"
   },
   {
     name: "New Zealand",
     component: NewZealand,
-    continent: "AustraliaNewZealand"
+    url: "AustraliaNewZealand/NewZealand"
   }
 ];
 

@@ -43,14 +43,14 @@ button:focus {
   padding: 15px;
   cursor: pointer;
   text-decoration: none;
-  -webkit-box-shadow: 1px 10px 40px -13px rgba(0, 0, 0, 0.45);
-  -moz-box-shadow: 1px 10px 40px -13px rgba(0, 0, 0, 0.45);
-  box-shadow: 1px 10px 40px -13px rgba(0, 0, 0, 0.45);
-  transition: transform 0.2s;
+  transition: box-shadow 0.1s;
 }
-
 .button:hover {
-  transform: scale(1.1);
+  background-color: #12aad1;
+  color: white;
+  -webkit-box-shadow: 1px 10px 30px -10px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 1px 10px 30px -10px rgba(0, 0, 0, 0.45);
+  box-shadow: 1px 10px 30px -10px rgba(0, 0, 0, 0.45);
 }
 
 .topBannerImage {
@@ -77,10 +77,13 @@ button:focus {
 }
 
 .signInButton {
+  position: absolute;
   color: rgba(0, 0, 0, 0.5);
   float: right;
+  right: 80px;
   margin: 20px 10px;
   cursor: pointer;
+  z-index: 1;
 }
 
 .signInButton:hover {
@@ -88,9 +91,14 @@ button:focus {
 }
 
 .signUpButton {
-  color: red;
+  position: absolute;
   float: right;
+  right: 0;
   margin: 5px;
+  z-index: 1;
+}
+
+.signUpButton button {
 }
 
 .signInWrapper {
@@ -98,12 +106,13 @@ button:focus {
   height: 500px;
   position: absolute;
   overflow: hidden;
-
-  /* right: 10%; */
+  right: 150px;
+  z-index: 1;
 }
 
 .signIn {
   color: #444040;
+  top: 10px;
   position: absolute;
   right: -50%;
   opacity: 0;
@@ -135,15 +144,15 @@ button:focus {
   height: 100%;
   width: 100%;
   overflow: auto;
-  z-index: 1;
+  z-index: 2;
 }
 
 .modalContent {
   background-color: white;
-  min-height: 40%;
+  height: 350px;
   margin: 10% auto;
   padding: 20px;
-  width: 70%;
+  width: 400px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
 }
 
@@ -163,7 +172,7 @@ button:focus {
 
 .inputField {
   text-align: left;
-  padding: 5px 40%;
+  padding: 5px 125px;
 }
 
 .topText {
@@ -246,16 +255,8 @@ button:focus {
 .botTiles {
   max-height: 700px;
   height: 700px;
-  margin: 5% 0;
+  margin: 5% 10%;
   overflow-y: scroll;
-}
-
-.botTiles button:hover {
-  -webkit-box-shadow: 1px 22px 40px -5px rgba(0, 0, 0, 0.45);
-  -moz-box-shadow: 1px 22px 40px -5px rgba(0, 0, 0, 0.45);
-  box-shadow: 1px 12px 40px -5px rgba(0, 0, 0, 0.45);
-  background-color: #12aad1;
-  color: white;
 }
 
 .botTile {
@@ -349,16 +350,13 @@ button:focus {
 .buttonsMenu {
   background-color: white;
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
 }
 
 .buttonsMenu h2 {
   margin: 0;
   padding: 20px;
-}
-
-.countryProfile {
-  margin: 0 10%;
 }
 
 .countryProfileMenu {
@@ -374,7 +372,7 @@ button:focus {
 
 .countryProfileContent {
   text-align: left;
-  font-family: Calibri;
+  font-family: Arial, Calibri;
   font-size: 1.25em;
   background-color: #fff;
 }
@@ -386,11 +384,6 @@ button:focus {
 }
 
 .countryProfileMenu li a:hover {
-  background-color: black;
-  color: #fff;
-}
-
-.countryProfileMenu li a:focus {
   background-color: black;
   color: #fff;
 }
@@ -422,16 +415,6 @@ button:focus {
 .commentsTiles button {
   cursor: no-drop;
   opacity: 0.4;
-  transition: background-color 0.2s;
-  transition: box-shadow 0.4s;
-}
-
-.commentsTiles button:hover {
-  -webkit-box-shadow: 1px 12px 40px -5px rgba(0, 0, 0, 0.45);
-  -moz-box-shadow: 1px 12px 40px -5px rgba(0, 0, 0, 0.45);
-  box-shadow: 1px 12px 40px -5px rgba(0, 0, 0, 0.45);
-  background-color: #12aad1;
-  color: white;
 }
 
 .inputBox {
