@@ -44,7 +44,7 @@ class SouthAmerica extends React.Component {
           tileImgSrc:
             "https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg",
           tileAlt: "Brazil",
-          navLink: `${this.props.location.pathname}/Brazil`,
+          navLink: "/SouthAmerica/Brazil",
           component: Brazil,
           tileId: 4
         }

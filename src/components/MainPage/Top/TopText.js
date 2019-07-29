@@ -31,7 +31,7 @@ class TopText extends React.Component {
           nuanced country-specific understanding of these backgrounds can be
           beneficial in appreciating students' perspective and needs.
         </p>
-        <p>
+        {/* <p>
           Nevertheless, because of the particular composition of the focus
           groups, there is a greater amount of information about some countries
           than others. The site is not designed as a comprehensive resource but
@@ -39,7 +39,7 @@ class TopText extends React.Component {
           resource is also designed for users to browse sections of particular
           interest, rather than read comprehensively, and so there are some
           information overlaps in places.
-        </p>
+        </p> */}
       </article>
     );
   }
