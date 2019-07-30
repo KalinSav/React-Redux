@@ -145,7 +145,7 @@ class Form extends React.Component {
               name="comment"
               value={comment}
               rows="3"
-              cols="40"
+              cols="30"
               className="inputBox"
               placeholder="Comment..."
               onChange={this.handleChange}

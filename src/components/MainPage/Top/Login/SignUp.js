@@ -4,8 +4,8 @@ class SignUp extends React.Component {
   constructor() {
     super();
     this.state = {
-      email: "",
-      password: "",
+      SignUpUsername: "",
+      SignUpPassword: "",
       firstName: "",
       lastName: ""
     };
@@ -28,7 +28,6 @@ class SignUp extends React.Component {
     } else if (modal.style.display === "block") {
       modal.removeAttribute("style");
     }
-    console.log(modal.style);
   };
 
   render() {
@@ -56,11 +55,11 @@ class SignUp extends React.Component {
                 <input type="text" id="lastName" onChange={this.handleChange} />
               </div>
               <div className="inputField">
-                <label htmlFor="signUpEmail">Email</label>
+                <label htmlFor="signUpUsername">Username</label>
                 <br />
                 <input
-                  type="email"
-                  id="signUpEmail"
+                  type="text"
+                  id="signUpUsername"
                   onChange={this.handleChange}
                 />
               </div>
@@ -76,10 +75,8 @@ class SignUp extends React.Component {
               <button className="button">Sign Up</button>
             </div>
           </div>
-          <p className="signUpButton ">
-            <button className="button" onClick={this.toggleModal}>
-              Sign Up
-            </button>
+          <p className="button signUpButton" onClick={this.toggleModal}>
+            Sign Up
           </p>
         </form>
       </div>

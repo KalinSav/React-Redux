@@ -96,15 +96,12 @@ button:focus {
 }
 
 .signUpButton {
+  font-size: 0.75em;
   position: absolute;
   float: right;
   right: 0;
   margin: 5px;
   z-index: 1;
-}
-
-.signUpButton button {
-  font-size: 0.75em;
 }
 
 .signInWrapper {
@@ -117,7 +114,6 @@ button:focus {
 }
 
 .signIn {
-  color: #444040;
   top: 10px;
   position: absolute;
   right: -50%;
@@ -169,6 +165,10 @@ button:focus {
   padding: 20px;
   width: 400px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+}
+
+.modalContent button {
+  margin-top: 20px;
 }
 
 .closeBtn {
@@ -388,7 +388,7 @@ button:focus {
 .countryProfileContent {
   text-align: left;
   font-family: Arial, Calibri;
-  font-size: 1.25em;
+  /* font-size: 1.25em; */
   background-color: #fff;
 }
 
@@ -406,7 +406,8 @@ button:focus {
 #commentSection {
   width: 90%;
   height: 500px;
-  margin: 2% auto;
+  margin: auto;
+  margin-top: 2%;
   overflow: auto;
 }
 
@@ -467,15 +468,20 @@ button:focus {
   color: red;
 }
 
+.footer {
+  background-color: #fdc010;
+  height: 200px;
+  margin: 0;
+  padding: 0;
+}
+
 @media (max-width: 819px) {
   .botTile img {
     max-height: 130px;
   }
 }
 
-@media (max-width: 640px) {
-  /* smartphones, Android phones, landscape iPhone */
-
+@media (max-width: 685px) {
   .topBanner {
     height: 250px;
   }
@@ -492,6 +498,10 @@ button:focus {
   .topBanner h2 {
     font-size: 1em;
   }
+}
+
+@media (max-width: 640px) {
+  /* smartphones, Android phones, landscape iPhone */
 
   .midTile {
     padding: 0px 10%;
@@ -519,6 +529,10 @@ button:focus {
 @media (max-width: 500px) {
   /* smartphones, Android phones, landscape iPhone */
 
+  .signIn {
+    width: 200px;
+  }
+
   .botTile {
     font-size: 0.5em;
     height: 100px;
@@ -533,12 +547,6 @@ button:focus {
   .botTile h2 {
     padding: 20px;
   }
-}
-
-.footer {
-  background-color: #fdc010;
-  height: 200px;
-  margin-top: 5%;
 }
 
 @media (max-width: 350px) {

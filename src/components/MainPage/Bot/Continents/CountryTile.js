@@ -48,7 +48,13 @@ const CountryTile = props => {
         {countryTilesList}
 
         <br />
-        <button className="button" onClick={() => window.history.go(-1)}>
+        <button
+          className="button"
+          onClick={() => {
+            window.history.go(-1);
+            document.querySelector(".botTiles").scrollIntoView(true);
+          }}
+        >
           Back
         </button>
       </div>

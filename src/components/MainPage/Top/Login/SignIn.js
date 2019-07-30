@@ -4,8 +4,8 @@ class SignIn extends React.Component {
   constructor() {
     super();
     this.state = {
-      email: "",
-      password: ""
+      signInUsername: "",
+      signInPassword: ""
     };
   }
 
@@ -20,9 +20,9 @@ class SignIn extends React.Component {
     console.log(this.state);
   };
 
-  toggleClass = () => {
-    console.log("wtst");
+  toggleCredentials = () => {
     document.querySelector(".signIn").classList.toggle("transition");
+    document.querySelector(".signInButton").style.display = "none";
   };
 
   render() {
@@ -31,23 +31,26 @@ class SignIn extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="signInWrapper">
             <div className="signIn">
-              <label htmlFor="email">Email</label>
+              {/* <label htmlFor="signInUsername">Email</label> */}
               <input
                 className="loginField"
-                type="email"
-                id="email"
+                type="text"
+                id="signInUsername"
                 onChange={this.handleChange}
+                placeholder="Username"
               />
-              <label htmlFor="password">Password</label>
+              {/* <label htmlFor="signInPassword">Password</label> */}
               <input
                 className="loginField"
                 type="password"
-                id="password"
+                id="signInPassword"
                 onChange={this.handleChange}
+                placeholder="Password"
               />
+              <button>Submit</button>
             </div>
           </div>
-          <p className="signInButton" onMouseEnter={() => this.toggleClass()}>
+          <p className="signInButton" onClick={() => this.toggleCredentials()}>
             Sign In
           </p>
         </form>
