@@ -1,11 +1,14 @@
 import React from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as actions from "../../../../store/actions/authActions";
 
 class SignUp extends React.Component {
   constructor() {
     super();
     this.state = {
-      SignUpUsername: "",
-      SignUpPassword: "",
+      signUpUsername: "",
+      signUpPassword: "",
       firstName: "",
       lastName: ""
     };
@@ -20,6 +23,7 @@ class SignUp extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
+    this.props.signUp(creds);
   };
   toggleModal = () => {
     const modal = document.getElementById("modal");
@@ -84,4 +88,22 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      signUp: creds => actions.signUp(creds)
+    },
+    dispatch
+  );
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignUp);
