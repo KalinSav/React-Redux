@@ -23,7 +23,6 @@ class SignUp extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
-    this.props.signUp(creds);
   };
   toggleModal = () => {
     const modal = document.getElementById("modal");

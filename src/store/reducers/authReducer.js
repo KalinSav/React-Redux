@@ -1,4 +1,5 @@
 const initialState = {
+  isLogged: false,
   authError: null,
   users: [
     {
@@ -30,7 +31,14 @@ const authReducer = (state = initialState, action) => {
       console.log("login success");
       return {
         ...state,
-        authError: null
+        authError: null,
+        isLogged: true
+      };
+    case "LOGOUT_SUCCESS":
+      console.log("logout success");
+      return {
+        ...state,
+        isLogged: false
       };
     default:
       return state;

@@ -1,9 +1,13 @@
 import React from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as actions from "../../../../store/actions/authActions";
 
 class SignIn extends React.Component {
   constructor() {
     super();
     this.state = {
+      toggleSignIn: true,
       signInUsername: "",
       signInPassword: ""
     };
@@ -16,16 +20,40 @@ class SignIn extends React.Component {
   };
 
   handleSubmit = e => {
+    const state = this.state;
+    const auth = this.props.auth;
+    const creds = { state, auth };
     e.preventDefault();
-    console.log(this.state);
+    console.log(this.props);
+    this.props.signIn(creds);
   };
 
   toggleCredentials = () => {
-    document.querySelector(".signIn").classList.toggle("transition");
-    document.querySelector(".signInButton").style.display = "none";
+    const signIn = document.querySelector(".signIn");
+    if (this.state.toggleSignIn) {
+      signIn.classList.add("transition");
+      this.setState(prevState => ({
+        toggleSignIn: !prevState.toggleSignIn
+      }));
+    } else {
+      this.setState(prevState => ({
+        toggleSignIn: !prevState.toggleSignIn
+      }));
+      signIn.classList.remove("transition");
+    }
   };
 
+  componentDidMount() {
+    document.querySelector(".topBanner").addEventListener("click", () => {
+      if (!this.state.toggleSignIn) {
+        this.toggleCredentials();
+      }
+    });
+  }
+
   render() {
+    console.log(this.props);
+    const { authError } = this.props.auth;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -47,16 +75,45 @@ class SignIn extends React.Component {
                 onChange={this.handleChange}
                 placeholder="Password"
               />
-              <button>Submit</button>
             </div>
           </div>
-          <p className="signInButton" onClick={() => this.toggleCredentials()}>
-            Sign In
-          </p>
+          {this.state.toggleSignIn ? (
+            <p
+              className="signInButton"
+              onClick={() => this.toggleCredentials()}
+            >
+              Sign In
+            </p>
+          ) : (
+            <button type="submit" className="button loginButton">
+              Login
+            </button>
+          )}
+          <div>
+            {authError ? <div className="loginError">{authError}</div> : null}
+          </div>
         </form>
       </div>
     );
   }
 }
 
-export default SignIn;
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      signIn: creds => actions.signIn(creds)
+    },
+    dispatch
+  );
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignIn);
