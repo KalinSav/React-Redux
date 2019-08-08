@@ -11,15 +11,23 @@ class Form extends React.Component {
       id: null
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.createComment = this.createComment.bind(this);
+    this.deleteComment = this.deleteComment.bind(this);
   }
 
-  handleSubmit(e) {
+  createComment(e) {
     e.preventDefault();
     const data = this.state;
     this.setState(prevState => {
-      const newId = data.commentsDatabase.length;
+      const commentsTilesButton = document.querySelector(
+        ".commentsTiles button"
+      );
+      commentsTilesButton.className = "button commentButtonDisabled";
+      commentsTilesButton.disabled = true;
+      const newId =
+        data.commentsDatabase[data.commentsDatabase.length - 1].id + 1;
+      if (data.commentsDatabase.length) {
+      }
       const newCommentsDatabase = prevState.commentsDatabase.map(item => item);
       newCommentsDatabase.push({
         firstName: data.firstName,
@@ -33,10 +41,7 @@ class Form extends React.Component {
         id: null
       };
     });
-    this.createComment(data.firstName, data.comment);
-    document.querySelector(".commentsTiles button").disabled = true;
-    document.querySelector(".commentsTiles button").style.cursor = "no-drop";
-    document.querySelector(".commentsTiles button").style.opacity = "0.4";
+
     // second way
     // let newcommentsDatabase = [
     //   ...data.commentsDatabase,
@@ -44,6 +49,7 @@ class Form extends React.Component {
     // ];
     // console.log(data);
     // this.setState({ commentsDatabase: newcommentsDatabase });
+
     // third way
     // data.commentsDatabase.push({
     //   id: data.id,
@@ -64,7 +70,6 @@ class Form extends React.Component {
         const commentsTilesButton = document.querySelector(
           ".commentsTiles button"
         );
-
         if (
           // Error message only shown between 1 and 3 characters in the name input
           this.state.firstName.length === 0 ||
@@ -80,50 +85,48 @@ class Form extends React.Component {
           this.state.firstName.length >= 3 &&
           this.state.comment.length
         ) {
+          commentsTilesButton.className = "button commentButtonEnabled";
           commentsTilesButton.disabled = false;
-          commentsTilesButton.style.cursor = "pointer";
-          commentsTilesButton.style.opacity = "1";
         } else {
           // if the values entered into the fields are less than 3 characters
+          commentsTilesButton.className = "button commentButtonDisabled";
           commentsTilesButton.disabled = true;
-          commentsTilesButton.style.cursor = "no-drop";
-          commentsTilesButton.style.opacity = "0.4";
         }
       }
     );
   }
 
-  createComment(name, comment) {
-    const newCommentDiv = document.createElement("div");
-    newCommentDiv.classList.add("comment");
-    const newNameH3 = document.createElement("h3");
-    const newName = document.createTextNode(name);
-    const newCommentP = document.createElement("p");
-    const newComment = document.createTextNode(comment);
-    newNameH3.appendChild(newName);
-    newCommentP.appendChild(newComment);
-    newCommentDiv.appendChild(newNameH3);
-    newCommentDiv.appendChild(newCommentP);
-    const commentSection = document.getElementById("commentSection");
-    commentSection.insertBefore(newCommentDiv, commentSection.childNodes[0]);
-  }
-
-  componentDidMount() {
-    for (let i = 0; i < this.state.commentsDatabase.length; i++) {
-      this.createComment(
-        this.state.commentsDatabase[i].firstName,
-        this.state.commentsDatabase[i].comment
-      );
-    }
+  deleteComment(e) {
+    const targetComment = this.state.commentsDatabase.find(item => {
+      return item.comment === e.target.parentNode.childNodes[2].innerHTML;
+    });
+    this.setState(prevState => {
+      const newCommentsDatabase = prevState.commentsDatabase.filter(item => {
+        return item.id !== targetComment.id;
+      });
+      return {
+        commentsDatabase: newCommentsDatabase
+      };
+    });
   }
 
   render() {
     const { firstName, comment } = this.state;
-
+    const renderComments = this.state.commentsDatabase.map(item => {
+      return (
+        <div className="comment" key={item.id}>
+          <span className="deleteComment" onClick={e => this.deleteComment(e)}>
+            delete
+          </span>
+          <h3>{item.firstName}</h3>
+          <p>{item.comment}</p>
+        </div>
+      );
+    });
     return (
       <div>
         <h1>Type in your name and comment below</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.createComment}>
           <p>
             <input
               name="firstName"
@@ -152,11 +155,11 @@ class Form extends React.Component {
             />
           </p>
 
-          <button className="button" disabled>
+          <button className="button commentButtonDisabled" disabled>
             Add comment
           </button>
         </form>
-        <div id="commentSection" />
+        <div id="commentSection">{renderComments.reverse()}</div>
       </div>
     );
   }

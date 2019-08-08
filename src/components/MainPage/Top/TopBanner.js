@@ -11,15 +11,32 @@ class TopBanner extends React.Component {
     this.props.signOut(this.props.auth);
   };
 
+  componentDidUpdate() {
+    const loggedInMessage = document.querySelector(".loggedInMessage");
+    if (loggedInMessage && loggedInMessage.style.display !== "none") {
+      setTimeout(() => {
+        loggedInMessage.style.display = "none";
+      }, 6000);
+      return false;
+    }
+  }
+
   render() {
-    const isLogged = {
-      color: "#000080"
-    };
+    const isLoggedStyle = {};
     const { auth } = this.props;
     const links = auth.isLogged ? (
-      <button onClick={this.handleSubmit} className="button logOutButton">
-        Log Out
-      </button>
+      <div>
+        <p className="loggedInAs">{auth.loggedInAs}</p>
+        <button onClick={this.handleSubmit} className="button logOutButton">
+          Log Out
+        </button>
+        <p className="loggedInMessage">
+          You have logged in as: {auth.loggedInAs}
+        </p>
+        <svg>
+          <circle r="6" cx="8" cy="8" />
+        </svg>
+      </div>
     ) : (
       <div>
         <SignUp />
@@ -29,9 +46,10 @@ class TopBanner extends React.Component {
     return (
       <header>
         {links}
+
         <div className="topBannerImage" />
         <div className="topBanner">
-          <h1 style={auth.isLogged ? isLogged : null}>
+          <h1 style={auth.isLogged ? isLoggedStyle : null}>
             INTERNATIONAL
             <br />
             STUDENTS

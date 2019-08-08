@@ -24,7 +24,6 @@ class SignIn extends React.Component {
     const auth = this.props.auth;
     const creds = { state, auth };
     e.preventDefault();
-    console.log(this.props);
     this.props.signIn(creds);
   };
 
@@ -52,7 +51,6 @@ class SignIn extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const { authError } = this.props.auth;
     return (
       <div>

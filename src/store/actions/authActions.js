@@ -12,7 +12,8 @@ export const signIn = credentials => {
       user.password === credentials.state.signInPassword)
   ) {
     return {
-      type: "LOGIN_SUCCESS"
+      type: "LOGIN_SUCCESS",
+      username: user.userName
     };
   } else {
     return {

@@ -25,9 +25,9 @@ const CountryProfile = props => {
         </div>
         <div className="countryProfileContent">{routers}</div>
         <br />
-        <button className="button" onClick={() => window.history.go(-1)}>
+        <NavLink className="button" to={`/${props.state.continent}`}>
           Back
-        </button>
+        </NavLink>
       </div>
     </HashRouter>
   );

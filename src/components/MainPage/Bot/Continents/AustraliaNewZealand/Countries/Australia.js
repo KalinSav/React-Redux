@@ -6,6 +6,7 @@ class Australia extends React.Component {
     super(props);
     this.state = {
       countryName: this.constructor.name,
+      continent: "AustraliaNewZealand",
       data: [
         {
           navLink: "/AustraliaNewZealand/Australia/keyFacts",

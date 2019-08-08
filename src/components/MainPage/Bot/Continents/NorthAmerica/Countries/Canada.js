@@ -6,6 +6,7 @@ class Canada extends React.Component {
     super(props);
     this.state = {
       countryName: this.constructor.name,
+      continent: "NorthAmerica",
       data: [
         {
           navLink: "/NorthAmerica/Canada/keyFacts",

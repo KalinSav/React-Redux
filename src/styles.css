@@ -37,6 +37,7 @@ button:focus {
 
 .button {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
+  font-size: 0.75em;
   display: inline-block;
   border: none;
   background-color: #fdc010;
@@ -117,8 +118,63 @@ button:focus {
   z-index: 1;
 }
 
-.signUpButton {
+.loggedInMessage {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #5cb85c;
+  border-radius: 5px;
+  position: absolute;
+  display: inline-block;
+  top: 5%;
+  left: 50%;
+  padding: 10px;
+  margin: 0px;
+  margin-right: -50%;
+  z-index: 1;
+  transform: translate(-50%);
+}
+
+.loggedInAs {
   font-size: 0.75em;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  position: absolute;
+  float: right;
+  right: 80px;
+  margin: 10px;
+  z-index: 1;
+}
+
+svg {
+  position: absolute;
+  top: 2.5%;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+svg circle {
+  stroke-dasharray: 37px;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  stroke-width: 2px;
+  stroke: white;
+  fill: none;
+  animation: countdown 6s linear forwards;
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 37px;
+  }
+}
+
+.signUpButton {
   position: absolute;
   float: right;
   right: 0;
@@ -460,9 +516,21 @@ button:focus {
   box-shadow: 1px 10px 50px -13px rgba(0, 0, 0, 0.45);
 }
 
-.commentsTiles button {
+.commentButtonDisabled {
   cursor: no-drop;
   opacity: 0.4;
+}
+
+.commentButtonEnabled {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.deleteComment {
+  color: red;
+  font-size: 0.75em;
+  float: right;
+  cursor: pointer;
 }
 
 .inputBox {
