@@ -85,7 +85,7 @@ class BotTiles extends React.Component {
 
     return (
       <HashRouter>
-        <section className="botTiles">
+        <section className="bot">
           <Route path="/" exact render={() => <BotTile state={this.state} />} />
           <Route
             render={({ location }) => (

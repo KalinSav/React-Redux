@@ -1,5 +1,6 @@
 import React from "react";
 import FormDatabase from "./FormDatabase.js";
+import { connect } from "react-redux";
 
 class Form extends React.Component {
   constructor(props) {
@@ -24,10 +25,9 @@ class Form extends React.Component {
       );
       commentsTilesButton.className = "button commentButtonDisabled";
       commentsTilesButton.disabled = true;
-      const newId =
-        data.commentsDatabase[data.commentsDatabase.length - 1].id + 1;
-      if (data.commentsDatabase.length) {
-      }
+      const newId = data.commentsDatabase.length
+        ? data.commentsDatabase[data.commentsDatabase.length - 1].id + 1
+        : 0;
       const newCommentsDatabase = prevState.commentsDatabase.map(item => item);
       newCommentsDatabase.push({
         firstName: data.firstName,
@@ -111,13 +111,20 @@ class Form extends React.Component {
   }
 
   render() {
+    const { auth } = this.props;
     const { firstName, comment } = this.state;
     const renderComments = this.state.commentsDatabase.map(item => {
       return (
         <div className="comment" key={item.id}>
-          <span className="deleteComment" onClick={e => this.deleteComment(e)}>
-            delete
-          </span>
+          {auth.isLogged ? (
+            <span
+              id="deleteCommentButton"
+              className="deleteComment"
+              onClick={e => this.deleteComment(e)}
+            >
+              delete
+            </span>
+          ) : null}
           <h3>{item.firstName}</h3>
           <p>{item.comment}</p>
         </div>
@@ -148,7 +155,7 @@ class Form extends React.Component {
               name="comment"
               value={comment}
               rows="3"
-              cols="30"
+              cols="22"
               className="inputBox"
               placeholder="Comment..."
               onChange={this.handleChange}
@@ -165,4 +172,10 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  };
+};
+
+export default connect(mapStateToProps)(Form);

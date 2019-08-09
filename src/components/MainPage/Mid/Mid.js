@@ -5,7 +5,7 @@ import MidTiles from "./MidTiles";
 class Mid extends React.Component {
   render() {
     return (
-      <section className="mid">
+      <section>
         <MidBanner />
         <MidTiles />
       </section>

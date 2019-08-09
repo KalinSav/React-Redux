@@ -31,11 +31,11 @@ class TopBanner extends React.Component {
           Log Out
         </button>
         <p className="loggedInMessage">
-          You have logged in as: {auth.loggedInAs}
+          You have logged in as {auth.loggedInAs}
+          <svg>
+            <circle r="6" cx="8" cy="8" />
+          </svg>
         </p>
-        <svg>
-          <circle r="6" cx="8" cy="8" />
-        </svg>
       </div>
     ) : (
       <div>

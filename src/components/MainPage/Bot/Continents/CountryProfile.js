@@ -24,8 +24,10 @@ const CountryProfile = props => {
           <ul className="countryProfileMenu">{navLinks}</ul>
         </div>
         <div className="countryProfileContent">{routers}</div>
-        <br />
-        <NavLink className="button" to={`/${props.state.continent}`}>
+        <NavLink
+          className="button countryProfileButton"
+          to={`/${props.state.continent}`}
+        >
           Back
         </NavLink>
       </div>

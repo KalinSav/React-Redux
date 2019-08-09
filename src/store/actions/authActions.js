@@ -1,14 +1,19 @@
 export const signIn = credentials => {
-  //if creds email and password == authReducer ones
+  //if creds email and password === authReducer ones
   // dispatch({ type: "LOGIN_SUCCESS" })
   // else dispatch({ type: "LOGIN_ERROR" })
   const user = credentials.auth.users.find(user => {
-    return credentials.state.signInUsername === user.userName;
+    return (
+      credentials.state.signInUsername.toLowerCase() ===
+      user.userName.toLowerCase()
+    );
   });
-
+  console.log(user.userName);
+  console.log(credentials.state.signInUsername);
   if (
     user &&
-    (user.userName === credentials.state.signInUsername &&
+    (user.userName.toLowerCase() ===
+      credentials.state.signInUsername.toLowerCase() &&
       user.password === credentials.state.signInPassword)
   ) {
     return {

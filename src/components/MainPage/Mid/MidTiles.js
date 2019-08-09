@@ -23,7 +23,7 @@ class MidTiles extends React.Component {
   };
   render() {
     return (
-      <section className="midTiles">
+      <section className="mid">
         <MidTile midTiles={this.state.midTiles} />
       </section>
     );
