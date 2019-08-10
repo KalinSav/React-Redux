@@ -29,16 +29,18 @@ class SignIn extends React.Component {
 
   toggleCredentials = () => {
     const signIn = document.querySelector(".signIn");
-    if (this.state.toggleSignIn) {
-      signIn.classList.add("transition");
-      this.setState(prevState => ({
-        toggleSignIn: !prevState.toggleSignIn
-      }));
-    } else {
-      this.setState(prevState => ({
-        toggleSignIn: !prevState.toggleSignIn
-      }));
-      signIn.classList.remove("transition");
+    if (signIn) {
+      if (this.state.toggleSignIn) {
+        signIn.classList.add("transition");
+        this.setState(prevState => ({
+          toggleSignIn: !prevState.toggleSignIn
+        }));
+      } else {
+        this.setState(prevState => ({
+          toggleSignIn: !prevState.toggleSignIn
+        }));
+        signIn.classList.remove("transition");
+      }
     }
   };
 

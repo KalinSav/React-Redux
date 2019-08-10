@@ -249,7 +249,7 @@ svg circle {
 
 .modalContent {
   background-color: white;
-  height: 350px;
+  height: 400px;
   margin: 10% auto;
   padding: 20px;
   width: 400px;
@@ -279,6 +279,11 @@ svg circle {
   padding: 5px 125px;
 }
 
+.inputField span {
+  font-size: 0.75em;
+  color: red;
+}
+
 .top {
   display: flex;
   font-family: Calibri, Arial, sans-serif;
@@ -293,9 +298,11 @@ svg circle {
   font-family: webdings;
   font-size: 12em;
   margin: auto;
+  padding: 5%;
 }
 
-.top div {
+.topText {
+  text-align: justify;
   padding: 5%;
 }
 
@@ -670,6 +677,16 @@ svg circle {
   .countryProfileContent {
     height: 514px;
   }
+
+  .botTile {
+    font-size: 0.5em;
+    height: 100px;
+    line-height: normal;
+    min-width: 100px;
+  }
+  .botTile h2 {
+    padding: 20px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -679,19 +696,8 @@ svg circle {
     width: 200px;
   }
 
-  .botTile {
-    font-size: 0.5em;
-    height: 100px;
-    line-height: normal;
-    min-width: 100px;
-  }
-
   .banner h2 {
     font-size: 1.2em;
-  }
-
-  .botTile h2 {
-    padding: 20px;
   }
 }
 

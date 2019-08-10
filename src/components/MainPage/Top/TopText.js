@@ -5,7 +5,7 @@ class TopText extends React.Component {
     return (
       <article className="top">
         <div className="topImage">ü</div>
-        <div>
+        <div className="topText">
           <p>
             Welcome to this
             <strong> International Student Online Learning Resource</strong>.

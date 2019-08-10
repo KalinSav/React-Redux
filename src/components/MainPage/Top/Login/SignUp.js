@@ -7,10 +7,10 @@ class SignUp extends React.Component {
   constructor() {
     super();
     this.state = {
-      signUpUsername: "",
-      signUpPassword: "",
       firstName: "",
-      lastName: ""
+      lastName: "",
+      signUpUsername: "",
+      signUpPassword: ""
     };
   }
 
@@ -20,10 +20,108 @@ class SignUp extends React.Component {
     });
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    console.log(this.state);
+  checkSubmitIsCorrect = () => {
+    const runChecks = (entry, id) => {
+      if (entry === true) {
+        return true;
+      } else {
+        const errorMsg = document.createElement("span");
+        const textnode = document.createTextNode(entry);
+        errorMsg.appendChild(textnode);
+        document.getElementById(id).parentNode.appendChild(errorMsg);
+      }
+    };
+
+    const fields = [
+      {
+        firstName:
+          document.getElementById("firstName").value.length > 0
+            ? null
+            : "Please enter first name"
+      },
+      {
+        lastName:
+          document.getElementById("lastName").value.length > 0
+            ? null
+            : "Please enter last name"
+      },
+      {
+        signUpUsername:
+          document.getElementById("signUpUsername").value.length > 0
+            ? null
+            : "Please enter username"
+      },
+      {
+        signUpPassword:
+          document.getElementById("signUpPassword").value.length >= 6
+            ? null
+            : "Password mustbe at least 6 characters long"
+      }
+    ];
+
+    const fieldss = fields.map(item => {
+      // runChecks(Object.values(item), Object.keys(item))
+      return Object.values(item);
+    });
+    console.log(fieldss);
+    // for (let i = 0; i < fields.length; i++) {
+    //   return runChecks(Object.values(fields[i]), Object.keys(fields[i]))
+    //   // console.log(Object.keys(fields[i]), Object.values(fields[i]))
+    // }
+
+    // const isFirstNameCorrect = () => {
+    //   const firstName = document.getElementById("firstName").value.length > 0 ? true : "Please enter first name"
+    //   return runChecks(firstName, "firstName")
+    // }
+
+    // const isLastNameCorrect = () => {
+    //   const lastName = document.getElementById("lastName").value.length > 0 ? true : "Please enter last name"
+    //   return runChecks(lastName, "lastName")
+
+    // }
+
+    // const isUsernameCorrect = () => {
+    //   const signUpUsername = document.getElementById("signUpUsername").value.length > 0 ? true : "Please enter username"
+    //   return runChecks(signUpUsername, "signUpUsername")
+
+    // }
+
+    // const isPasswordCorrect = () => {
+    //   const signUpPassword = document.getElementById("signUpPassword").value.length > 6 ? true : "Password mustbe at least 6 characters long"
+    //   return runChecks(signUpPassword, "signUpPassword")
+
+    // }
+
+    function checkAdult(fieldss) {
+      return fieldss === null;
+    }
+
+    const everythingCorrect = () => {
+      return fieldss.every(checkAdult);
+    };
+
+    console.log("everything is " + everythingCorrect());
+    // if (
+    //   isFirstNameCorrect() === true &&
+    //   isLastNameCorrect() === true &&
+    //   isUsernameCorrect() === true &&
+    //   isPasswordCorrect() === true
+    //   ) {
+    //   return true
+    // }
   };
+
+  handleSubmit = e => {
+    console.log(this.checkSubmitIsCorrect());
+    const state = this.state;
+    const auth = this.props.auth;
+    const creds = { state, auth };
+    e.preventDefault();
+    // if (this.checkSubmitIsCorrect === true) {
+    //   this.props.signUp(creds);
+    // }
+  };
+
   toggleModal = () => {
     const modal = document.getElementById("modal");
     if (!modal.style.display) {

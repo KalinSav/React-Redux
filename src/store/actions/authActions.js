@@ -8,8 +8,6 @@ export const signIn = credentials => {
       user.userName.toLowerCase()
     );
   });
-  console.log(user.userName);
-  console.log(credentials.state.signInUsername);
   if (
     user &&
     (user.userName.toLowerCase() ===
@@ -27,10 +25,32 @@ export const signIn = credentials => {
   }
 };
 
-export const signOut = () => {
-  return {
-    type: "LOGOUT_SUCCESS"
-  };
+export const signOut = credentials => {
+  const newFirstName = credentials.state.firstName
+    ? credentials.state.firstName
+    : null;
+  const newLastName = credentials.state.lastName
+    ? credentials.state.lastName
+    : null;
+  const newUsername = credentials.state.signUpUsername
+    ? credentials.state.signUpUsername.toLowerCase()
+    : null;
+  const newPassword = credentials.state.signUpPassword
+    ? credentials.state.signUpPassword
+    : null;
+
+  if (newFirstName && newLastName && newUsername && newPassword) {
+    return true;
+  }
+  if (newFirstName.length > 2 && newLastName.length > 2 && newUsername) {
+    return {
+      type: "SIGNUP_SUCCESS"
+    };
+  } else {
+    return {
+      type: "SIGNUP_ERROR"
+    };
+  }
 };
 
 export const todoAction = () => {

@@ -46,7 +46,6 @@ class TopBanner extends React.Component {
     return (
       <header>
         {links}
-
         <div className="topBannerImage" />
         <div className="topBanner">
           <h1 style={auth.isLogged ? isLoggedStyle : null}>
