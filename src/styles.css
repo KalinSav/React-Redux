@@ -219,6 +219,7 @@ svg circle {
 .loginField::placeholder {
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   text-align: center;
+  color: black;
 }
 
 .loginField:focus::placeholder {
@@ -247,12 +248,18 @@ svg circle {
   z-index: 1;
 }
 
+.signUpSuccess {
+  color: #5cb85c;
+  margin: 25% auto;
+}
+
 .modalContent {
   background-color: white;
-  height: 400px;
-  margin: 10% auto;
+  height: 450px;
+  margin: 5% auto;
   padding: 20px;
-  width: 400px;
+  width: 90%;
+  max-width: 400px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
 }
 
@@ -279,7 +286,7 @@ svg circle {
   padding: 5px 125px;
 }
 
-.inputField span {
+.signUpErrMsg {
   font-size: 0.75em;
   color: red;
 }

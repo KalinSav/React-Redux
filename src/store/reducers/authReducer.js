@@ -2,12 +2,13 @@ const initialState = {
   isLogged: false,
   loggedInAs: "",
   authError: null,
+  signUpSuccess: null,
   users: [
     {
       id: 0,
       firstName: "James",
       lastName: "Raynor",
-      userName: "jimmy",
+      userName: "jimmy99",
       password: "pepper"
     },
     {
@@ -51,21 +52,29 @@ const authReducer = (state = initialState, action) => {
         : 0;
       newUsers.push({
         id: newId,
-        firstName: action.firstName,
-        lastName: action.lastName,
-        userName: action.signUpUsername.toLowerCase(),
-        password: action.signUpPassword
+        firstName: action.userDetails.firstName,
+        lastName: action.userDetails.lastName,
+        userName: action.userDetails.signUpUsername.toLowerCase(),
+        password: action.userDetails.signUpPassword
       });
       return {
         ...state,
         users: newUsers,
-        authError: null
+        signUpSuccess: "Sign up successful! You can now login."
       };
     case "SIGNUP_ERROR":
       console.log("SIGNUP ERROR");
+      const errorMsg = document.createElement("span");
+      const textnode = document.createTextNode("Username already exists");
+      errorMsg.appendChild(textnode);
+      errorMsg.className = "signUpErrMsg";
+      document
+        .getElementById("signUpUsername")
+        .parentNode.appendChild(errorMsg);
+
       return {
         ...state,
-        authError: "Signup failed"
+        signUpSuccess: null
       };
     default:
       return state;

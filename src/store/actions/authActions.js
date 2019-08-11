@@ -25,40 +25,25 @@ export const signIn = credentials => {
   }
 };
 
-export const signOut = credentials => {
-  const newFirstName = credentials.state.firstName
-    ? credentials.state.firstName
-    : null;
-  const newLastName = credentials.state.lastName
-    ? credentials.state.lastName
-    : null;
-  const newUsername = credentials.state.signUpUsername
-    ? credentials.state.signUpUsername.toLowerCase()
-    : null;
-  const newPassword = credentials.state.signUpPassword
-    ? credentials.state.signUpPassword
-    : null;
-
-  if (newFirstName && newLastName && newUsername && newPassword) {
-    return true;
-  }
-  if (newFirstName.length > 2 && newLastName.length > 2 && newUsername) {
-    return {
-      type: "SIGNUP_SUCCESS"
-    };
-  } else {
-    return {
-      type: "SIGNUP_ERROR"
-    };
-  }
-};
-
-export const todoAction = () => {
+export const signOut = () => {
   return {
-    type: "LOGIN_SUCCESS"
+    type: "LOGOUT_SUCCESS"
   };
 };
 
 export const signUp = credentials => {
-  return (dispatch, getState) => {};
+  const newUsername = credentials.state.signUpUsername.toLowerCase();
+  const checkUsernameMatch = credentials.auth.users.find(existingUser => {
+    return newUsername === existingUser.userName;
+  });
+  if (checkUsernameMatch) {
+    return {
+      type: "SIGNUP_ERROR"
+    };
+  } else {
+    return {
+      type: "SIGNUP_SUCCESS",
+      userDetails: credentials.state
+    };
+  }
 };

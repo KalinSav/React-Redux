@@ -21,6 +21,13 @@ class SignUp extends React.Component {
   };
 
   checkSubmitIsCorrect = () => {
+    const signUpErrMsg = document.getElementsByClassName("signUpErrMsg");
+    if (signUpErrMsg.length) {
+      while (signUpErrMsg[0]) {
+        signUpErrMsg[0].parentNode.removeChild(signUpErrMsg[0]);
+      }
+    }
+
     const runChecks = (entry, id) => {
       if (entry === true) {
         return true;
@@ -28,11 +35,12 @@ class SignUp extends React.Component {
         const errorMsg = document.createElement("span");
         const textnode = document.createTextNode(entry);
         errorMsg.appendChild(textnode);
+        errorMsg.className = "signUpErrMsg";
         document.getElementById(id).parentNode.appendChild(errorMsg);
       }
     };
 
-    const fields = [
+    const entryFields = [
       {
         firstName:
           document.getElementById("firstName").value.length > 0
@@ -47,82 +55,47 @@ class SignUp extends React.Component {
       },
       {
         signUpUsername:
-          document.getElementById("signUpUsername").value.length > 0
+          document.getElementById("signUpUsername").value.length >= 6
             ? null
-            : "Please enter username"
+            : "Username must be 6 or more characters"
       },
       {
         signUpPassword:
           document.getElementById("signUpPassword").value.length >= 6
             ? null
-            : "Password mustbe at least 6 characters long"
+            : "Password must be 6 or more characters"
       }
     ];
 
-    const fieldss = fields.map(item => {
-      // runChecks(Object.values(item), Object.keys(item))
-      return Object.values(item);
+    const entryFieldsValues = entryFields.map(item => {
+      runChecks(Object.values(item), Object.keys(item));
+      return Object.values(item)[0];
     });
-    console.log(fieldss);
-    // for (let i = 0; i < fields.length; i++) {
-    //   return runChecks(Object.values(fields[i]), Object.keys(fields[i]))
-    //   // console.log(Object.keys(fields[i]), Object.values(fields[i]))
-    // }
 
-    // const isFirstNameCorrect = () => {
-    //   const firstName = document.getElementById("firstName").value.length > 0 ? true : "Please enter first name"
-    //   return runChecks(firstName, "firstName")
-    // }
-
-    // const isLastNameCorrect = () => {
-    //   const lastName = document.getElementById("lastName").value.length > 0 ? true : "Please enter last name"
-    //   return runChecks(lastName, "lastName")
-
-    // }
-
-    // const isUsernameCorrect = () => {
-    //   const signUpUsername = document.getElementById("signUpUsername").value.length > 0 ? true : "Please enter username"
-    //   return runChecks(signUpUsername, "signUpUsername")
-
-    // }
-
-    // const isPasswordCorrect = () => {
-    //   const signUpPassword = document.getElementById("signUpPassword").value.length > 6 ? true : "Password mustbe at least 6 characters long"
-    //   return runChecks(signUpPassword, "signUpPassword")
-
-    // }
-
-    function checkAdult(fieldss) {
-      return fieldss === null;
-    }
-
-    const everythingCorrect = () => {
-      return fieldss.every(checkAdult);
+    const areAllFieldsCorrect = () => {
+      return entryFieldsValues.every(fieldValue => fieldValue === null);
     };
 
-    console.log("everything is " + everythingCorrect());
-    // if (
-    //   isFirstNameCorrect() === true &&
-    //   isLastNameCorrect() === true &&
-    //   isUsernameCorrect() === true &&
-    //   isPasswordCorrect() === true
-    //   ) {
-    //   return true
-    // }
+    if (areAllFieldsCorrect() === true) {
+      return true;
+    }
   };
 
   handleSubmit = e => {
-    console.log(this.checkSubmitIsCorrect());
     const state = this.state;
     const auth = this.props.auth;
     const creds = { state, auth };
     e.preventDefault();
-    // if (this.checkSubmitIsCorrect === true) {
-    //   this.props.signUp(creds);
-    // }
+    if (this.checkSubmitIsCorrect() === true) {
+      this.props.signUp(creds);
+    }
   };
 
   toggleModal = () => {
+    if (this.props.auth.signUpSuccess !== null) {
+      console.log(this.props.auth);
+    }
+
     const modal = document.getElementById("modal");
     if (!modal.style.display) {
       modal.style.display = "block";
@@ -132,6 +105,7 @@ class SignUp extends React.Component {
   };
 
   render() {
+    const { signUpSuccess } = this.props.auth;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -141,39 +115,55 @@ class SignUp extends React.Component {
                 &times;
               </span>
               <h3>Sign Up</h3>
-              <div className="inputField">
-                <label htmlFor="firstName">First Name</label>
-                <br />
-                <input
-                  type="text"
-                  id="firstName"
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="inputField">
-                <label htmlFor="lastName">Last Name</label>
-                <br />
-                <input type="text" id="lastName" onChange={this.handleChange} />
-              </div>
-              <div className="inputField">
-                <label htmlFor="signUpUsername">Username</label>
-                <br />
-                <input
-                  type="text"
-                  id="signUpUsername"
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="inputField">
-                <label htmlFor="signUpPassword">Password</label>
-                <br />
-                <input
-                  type="password"
-                  id="signUpPassword"
-                  onChange={this.handleChange}
-                />
-              </div>
-              <button className="button">Sign Up</button>
+              {signUpSuccess ? (
+                <div className="signUpSuccess">{signUpSuccess}</div>
+              ) : (
+                <div>
+                  <div className="inputField">
+                    <label htmlFor="firstName">First Name</label>
+                    <br />
+                    <input
+                      type="text"
+                      id="firstName"
+                      pattern="[a-zA-Z]+"
+                      title="Only letters allowed"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="inputField">
+                    <label htmlFor="lastName">Last Name</label>
+                    <br />
+                    <input
+                      type="text"
+                      id="lastName"
+                      pattern="[a-zA-Z]+"
+                      title="Only letters allowed"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="inputField">
+                    <label htmlFor="signUpUsername">Username</label>
+                    <br />
+                    <input
+                      type="text"
+                      id="signUpUsername"
+                      pattern="[a-zA-Z0-9-]+"
+                      title="Only letters and numbers allowed"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="inputField">
+                    <label htmlFor="signUpPassword">Password</label>
+                    <br />
+                    <input
+                      type="password"
+                      id="signUpPassword"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <button className="button">Sign Up</button>
+                </div>
+              )}
             </div>
           </div>
           <p className="button signUpButton" onClick={this.toggleModal}>
