@@ -738,10 +738,10 @@ svg circle {
     font-size: 0.7em;
   }
 
-  .midTile button {
+  /* .midTile button {
     width: 70px;
     margin-left: -35px;
-  }
+  } */
 
   .botTile {
     font-size: 0.4em;
