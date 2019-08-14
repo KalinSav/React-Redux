@@ -92,10 +92,6 @@ class SignUp extends React.Component {
   };
 
   toggleModal = () => {
-    if (this.props.auth.signUpSuccess !== null) {
-      console.log(this.props.auth);
-    }
-
     const modal = document.getElementById("modal");
     if (!modal.style.display) {
       modal.style.display = "block";
@@ -117,53 +113,52 @@ class SignUp extends React.Component {
               <h3>Sign Up</h3>
               {signUpSuccess ? (
                 <div className="signUpSuccess">{signUpSuccess}</div>
-              ) : (
-                <div>
-                  <div className="inputField">
-                    <label htmlFor="firstName">First Name</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="firstName"
-                      pattern="[a-zA-Z]+"
-                      title="Only letters allowed"
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                  <div className="inputField">
-                    <label htmlFor="lastName">Last Name</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="lastName"
-                      pattern="[a-zA-Z]+"
-                      title="Only letters allowed"
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                  <div className="inputField">
-                    <label htmlFor="signUpUsername">Username</label>
-                    <br />
-                    <input
-                      type="text"
-                      id="signUpUsername"
-                      pattern="[a-zA-Z0-9-]+"
-                      title="Only letters and numbers allowed"
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                  <div className="inputField">
-                    <label htmlFor="signUpPassword">Password</label>
-                    <br />
-                    <input
-                      type="password"
-                      id="signUpPassword"
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                  <button className="button">Sign Up</button>
+              ) : null}
+              <div>
+                <div className="inputField">
+                  <label htmlFor="firstName">First Name</label>
+                  <br />
+                  <input
+                    type="text"
+                    id="firstName"
+                    pattern="[a-zA-Z]+"
+                    title="Only letters allowed"
+                    onChange={this.handleChange}
+                  />
                 </div>
-              )}
+                <div className="inputField">
+                  <label htmlFor="lastName">Last Name</label>
+                  <br />
+                  <input
+                    type="text"
+                    id="lastName"
+                    pattern="[a-zA-Z]+"
+                    title="Only letters allowed"
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className="inputField">
+                  <label htmlFor="signUpUsername">Username</label>
+                  <br />
+                  <input
+                    type="text"
+                    id="signUpUsername"
+                    pattern="[a-zA-Z0-9-]+"
+                    title="Only letters and numbers allowed"
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className="inputField">
+                  <label htmlFor="signUpPassword">Password</label>
+                  <br />
+                  <input
+                    type="password"
+                    id="signUpPassword"
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <button className="button">Sign Up</button>
+              </div>
             </div>
           </div>
           <p className="button signUpButton" onClick={this.toggleModal}>

@@ -46,16 +46,8 @@ const CountryTile = props => {
         <h2>{props.state.continent}</h2>
         <br />
         {countryTilesList}
-
         <br />
-        <NavLink
-          className="button"
-          // onClick={() => {
-          //   window.history.go(-1);
-          //   // document.querySelector(".botTiles").scrollIntoView(true);
-          // }}
-          to="/"
-        >
+        <NavLink className="button" to="/">
           Back
         </NavLink>
       </div>

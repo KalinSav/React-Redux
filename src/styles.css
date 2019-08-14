@@ -250,7 +250,7 @@ svg circle {
 
 .signUpSuccess {
   color: #5cb85c;
-  margin: 25% auto;
+  margin: 20px auto;
 }
 
 .modalContent {
@@ -613,10 +613,18 @@ svg circle {
 }
 
 .footer {
+  position: relative;
   background-color: #fdc010;
   height: 200px;
   margin: 0;
   padding: 0;
+}
+
+.credit {
+  position: absolute;
+  margin: 10px;
+  bottom: 0;
+  right: 0;
 }
 
 @media (max-width: 1080px) {
