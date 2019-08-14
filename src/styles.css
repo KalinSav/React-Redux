@@ -300,10 +300,14 @@ svg circle {
 }
 
 .topImage {
-  text-align: center;
-  height: 100%;
-  font-family: webdings;
-  font-size: 12em;
+  min-width: 250px;
+  width: 40%;
+  margin: auto;
+  padding: 5%;
+}
+
+.topImage img {
+  width: 100%;
   margin: auto;
   padding: 5%;
 }
