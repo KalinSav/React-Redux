@@ -6,7 +6,7 @@ class TopText extends React.Component {
       <article className="top">
         <div className="topImage">
           <img
-            src="https://png2.kisspng.com/sh/8d09a20ebcf3547a57900f7dd92520a6/L0KzQYm3VMI0N6hwj5H0aYP2gLBuTfdtd5NqRdZ7YYfsfri0gBxqeF5miuY2Z3zycra0lvVkfJD3RadqZHS5crTrVMNma2Q3RqM7MEa1SIe6UcUzPGU7SKYEM0K6SIO1kP5o/kisspng-globe-drawing-clip-art-globe-vector-5add6bcd43ec32.1206286315244604932782.png"
+            src="https://icon-library.net/images/globe-icon/globe-icon-29.jpg"
             alt="Earth"
           />
         </div>
